@@ -1,4 +1,4 @@
-extends piece
+extends Piece
 
 
 # Declare member variables here. Examples:
