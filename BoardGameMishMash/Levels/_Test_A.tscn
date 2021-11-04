@@ -1,3 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Entities/Board.gd" type="Script" id=1]
+[ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
 
 [node name="Test A" type="Node2D"]
+script = ExtResource( 1 )
+entity_container_path = NodePath("Entities")
+
+[node name="TopBoard" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 65537, 0, 0 )
+
+[node name="Entities" type="Node2D" parent="."]

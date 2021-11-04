@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "TileMap",
+"class": "BoardLayer",
+"language": "GDScript",
+"path": "res://Entities/BoardLayer.gd"
+}, {
 "base": "Node2D",
 "class": "Piece",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Entities/Space.gd"
 } ]
 _global_script_class_icons={
+"BoardLayer": "",
 "Piece": "",
 "Space": ""
 }
@@ -27,6 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Board Game Mish Mash"
+run/main_scene="res://Levels/_Test_A.tscn"
 config/icon="res://icon.png"
 
 [autoload]
