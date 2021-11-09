@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 
 class_name Piece
@@ -13,3 +13,9 @@ func move_to(new_space: Space):
 	
 func die():
 	location.remove(self)
+
+func my_space():
+	return location.get_parent()
+	
+func space_world_position():
+	return my_space().position

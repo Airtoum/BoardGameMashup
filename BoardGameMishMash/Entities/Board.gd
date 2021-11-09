@@ -13,6 +13,10 @@ onready var entity_container = get_node(entity_container_path)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if btm_board_path == NodePath():
+		btm_board = get_node("BottomBoard")
+	btm_board.generate_entitites(entity_container)
+	btm_board.visible = false
 	if top_board_path == NodePath():
 		top_board = get_node("TopBoard")
 	top_board.generate_entitites(entity_container)

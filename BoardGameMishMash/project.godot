@@ -14,15 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Entities/BoardLayer.gd"
 }, {
-"base": "Node2D",
+"base": "Node",
 "class": "Piece",
 "language": "GDScript",
-"path": "res://Entities/Piece.gd"
+"path": "res://Components/PieceComponent.gd"
 }, {
-"base": "Node2D",
+"base": "Node",
 "class": "Space",
 "language": "GDScript",
-"path": "res://Entities/Space.gd"
+"path": "res://Components/SpaceComponent.gd"
 } ]
 _global_script_class_icons={
 "BoardLayer": "",
