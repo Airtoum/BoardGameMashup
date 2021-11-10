@@ -10,7 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if self.is_in_group("Space"):
+		position.x += 0.2
 
 
 func set_board_variable(board):
@@ -23,5 +24,8 @@ func set_board_variable(board):
 
 func set_location(grid_position):
 	var piece_component = get_node_or_null("PieceComponent")
+	var space_component = get_node_or_null("SpaceComponent")
 	if piece_component:
 		piece_component.move_to(grid_position)
+	if space_component:
+		space_component.board_position = grid_position

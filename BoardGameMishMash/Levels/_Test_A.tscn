@@ -5,6 +5,7 @@
 [ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
 
 [node name="Test A" type="Node2D"]
+position = Vector2( 2, 1 )
 script = ExtResource( 1 )
 top_board_path = NodePath("TopBoard")
 btm_board_path = NodePath("BottomBoard")
