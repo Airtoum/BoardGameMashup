@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/NormalSpace.png" type="Texture" id=1]
 [ext_resource path="res://Components/SpaceComponent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/GamePart.gd" type="Script" id=3]
 
 [node name="NormalSpace" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 2 )]
 

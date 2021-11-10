@@ -1,4 +1,4 @@
-extends Node2D
+extends GamePart
 
 
 # Declare member variables here. Examples:
