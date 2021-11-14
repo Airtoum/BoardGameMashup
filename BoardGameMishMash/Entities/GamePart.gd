@@ -10,8 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if self.is_in_group("Space"):
-		position.x += 0.2
+	pass
 
 
 func set_board_variable(board):
