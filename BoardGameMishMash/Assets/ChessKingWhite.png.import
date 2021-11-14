@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/800px-Chess_kdt45.svg.png-a5e179c2efb359e3202b1b92976082e5.stex"
+path="res://.import/ChessKingWhite.png-8f329b60742bae7ac63c8542644fe89e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/800px-Chess_kdt45.svg.png"
-dest_files=[ "res://.import/800px-Chess_kdt45.svg.png-a5e179c2efb359e3202b1b92976082e5.stex" ]
+source_file="res://Assets/ChessKingWhite.png"
+dest_files=[ "res://.import/ChessKingWhite.png-8f329b60742bae7ac63c8542644fe89e.stex" ]
 
 [params]
 

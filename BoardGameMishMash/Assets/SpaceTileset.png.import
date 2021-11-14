@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/800px-Chess_plt45.svg.png-9dd7c17dcf3133c5e588e3bd61c7914f.stex"
+path="res://.import/SpaceTileset.png-24e4e60ae1b70df6e2f4ad343b360440.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/800px-Chess_plt45.svg.png"
-dest_files=[ "res://.import/800px-Chess_plt45.svg.png-9dd7c17dcf3133c5e588e3bd61c7914f.stex" ]
+source_file="res://Assets/SpaceTileset.png"
+dest_files=[ "res://.import/SpaceTileset.png-24e4e60ae1b70df6e2f4ad343b360440.stex" ]
 
 [params]
 

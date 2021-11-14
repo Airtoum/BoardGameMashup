@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/800px-Chess_bdt45.svg.png-6a9057f0bb2e4313779f456e863ebec3.stex"
+path="res://.import/ChessBishopBlack.png-5375d739d73dce0c0020bd6c734f9c17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/800px-Chess_bdt45.svg.png"
-dest_files=[ "res://.import/800px-Chess_bdt45.svg.png-6a9057f0bb2e4313779f456e863ebec3.stex" ]
+source_file="res://Assets/ChessBishopBlack.png"
+dest_files=[ "res://.import/ChessBishopBlack.png-5375d739d73dce0c0020bd6c734f9c17.stex" ]
 
 [params]
 

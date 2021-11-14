@@ -1,11 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Entities/BoardLayer.gd" type="Script" id=1]
-[ext_resource path="res://Entities/NormalSpace/NormalSpace.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/Spaces/NormalSpace/NormalSpace.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/BottomBoard/BottomBoard.tres" type="TileSet" id=3]
 
 [node name="BottomBoard" type="TileMap"]
+scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 3 )
+cell_size = Vector2( 165, 165 )
 format = 1
 script = ExtResource( 1 )
 tilescenes = [ ExtResource( 2 ) ]

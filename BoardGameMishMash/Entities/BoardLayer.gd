@@ -26,5 +26,6 @@ func generate_entitites(container, board):
 			container.add_child(new_entity)
 			(new_entity as GamePart).set_board_variable(board)
 			(new_entity as GamePart).set_location(tile_position)
-			new_entity.position = self.map_to_world(tile_position) + self.cell_size / 2
+			new_entity.position = (self.map_to_world(tile_position) + self.cell_size / 2) * self.scale
 			#deal with scale
+			new_entity.scale = self.scale * 0.5

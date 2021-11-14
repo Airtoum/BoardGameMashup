@@ -2,10 +2,12 @@
 
 [ext_resource path="res://Entities/TopBoard/TopBoard.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/BoardLayer.gd" type="Script" id=2]
-[ext_resource path="res://Entities/TestPiece/TestPiece.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Pieces/Meeple/Meeple.tscn" type="PackedScene" id=3]
 
 [node name="TopBoard" type="TileMap"]
+scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 1 )
+cell_size = Vector2( 165, 165 )
 format = 1
 script = ExtResource( 2 )
 tilescenes = [ ExtResource( 3 ) ]
