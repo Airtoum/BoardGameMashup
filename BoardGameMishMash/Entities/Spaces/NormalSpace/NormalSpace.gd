@@ -16,7 +16,8 @@ func _input(event):
 		$SpaceComponent.select()
 
 func highlight(position_array, which_piece):
-	$Highlighted.visible = $SpaceComponent.board_position in position_array
+	$SpaceComponent.highlight(position_array, which_piece)
+	$Highlighted.visible = $SpaceComponent.is_highighted
 		
 func unhighlight():
 	$Highlighted.visible = false
