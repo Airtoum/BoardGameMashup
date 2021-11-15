@@ -45,6 +45,8 @@ config/icon="res://icon.png"
 [autoload]
 
 cons="*res://cons.gd"
+Global="*res://Global.gd"
+GameEvents="*res://GameEvents.gd"
 
 [physics]
 

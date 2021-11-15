@@ -3,6 +3,9 @@ extends Node2D
 class_name GamePart
 
 
+var moused_over = false
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -28,3 +31,9 @@ func set_location(grid_position):
 		piece_component.move_to(grid_position)
 	if space_component:
 		space_component.board_position = grid_position
+
+func is_clicked_on(event):
+	if event is InputEventMouseButton and moused_over:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			return true
+	return false

@@ -34,4 +34,13 @@ func move_to(grid_position):
 	else:
 		push_warning("Warning! Piece " + get_parent().name + " tried to move into a spot without a space!")
 	
-	
+func get_board_position():
+	if location:
+		return location.board_position
+		
+func select():
+	GameEvents.emit_signal("game_state_switched", Global.game_states.SELECT_SPACE)
+	GameEvents.emit_signal("piece_selected", get_parent())
+
+func highlight_spaces(array):
+	GameEvents.emit_signal("highlight_spaces", array)
