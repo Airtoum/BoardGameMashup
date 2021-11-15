@@ -13,6 +13,7 @@ var is_highighted = false
 func _ready():
 	get_parent().add_to_group("Space")
 	GameEvents.connect("highlight_spaces", self, "highlight")
+	GameEvents.connect("unhighlight_spaces", self, "unhighlight")
 
 func add(new_piece):
 	pieces.append(new_piece)
@@ -42,7 +43,12 @@ func highlight(position_array, piece, placement_rules: Array, can_move_into: Arr
 	var result = board_position in position_array
 	if result:
 		result = is_only_occupied_by(can_move_into)
+	if result:
+		GameEvents.emit_signal("space_highlighted")
 	is_highighted = result
+	
+func unhighlight():
+	is_highighted = false
 	
 func select():
 	if is_highighted:

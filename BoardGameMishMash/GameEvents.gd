@@ -7,10 +7,13 @@ signal game_state_selecting_piece
 signal game_state_selecting_space
 signal game_state_selecting_number
 signal game_state_animation
+signal game_state_after_move
 
 signal piece_selected # (piece)
 
 signal highlight_spaces # (array[board_positions], moving_piece, array[placement_rules], array[can_move_into])
+signal space_highlighted
+signal unhighlight_spaces
 
 signal space_selected # (space)
 

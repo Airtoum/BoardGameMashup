@@ -9,7 +9,7 @@ extends GamePart
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("highlight_spaces", self, "highlight")
-	GameEvents.connect("game_state_animation", self, "unhighlight")
+	GameEvents.connect("unhighlight_spaces", self, "unhighlight")
 
 func _input(event):
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_SPACE:
