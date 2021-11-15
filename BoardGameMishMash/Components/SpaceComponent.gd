@@ -44,7 +44,7 @@ func highlight(position_array, piece, placement_rules: Array, can_move_into: Arr
 	if result:
 		result = is_only_occupied_by(can_move_into)
 	if result:
-		GameEvents.emit_signal("space_highlighted")
+		GameEvents.emit_signal("a_space_was_highlighted")
 	is_highighted = result
 	
 func unhighlight():

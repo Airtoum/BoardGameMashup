@@ -16,6 +16,9 @@ func _ready():
 	GameEvents.connect("game_state_after_move", self, "game_state_after_move")
 	GameEvents.connect("piece_selected", self, "piece_selected")
 	GameEvents.connect("highlight_spaces", self, "highlight_spaces")
+	GameEvents.connect("a_space_was_highlighted", self, "a_space_was_highlighted")
+	GameEvents.connect("unhighlight_spaces", self, "unhighlight_spaces")
+	GameEvents.connect("space_selected", self, "space_selected")
 
 
 func game_state_switched(new_game_state):
@@ -39,5 +42,14 @@ func game_state_after_move():
 func piece_selected(piece):
 	print("Event: piece_selected " + str(piece))
 	
-func highlight_spaces(position_array, moving_piece):
-	print("Event: highlight_spaces in positions " + str(position_array) + " for piece " + str(moving_piece))
+func highlight_spaces(position_array, moving_piece, placement_rules, can_move_into):
+	print("Event: highlight_spaces in positions " + str(position_array) + " for piece " + str(moving_piece) + " abiding by the rules " + str(placement_rules) + " and can move into spaces containing " + str(can_move_into))
+	
+func a_space_was_highlighted():
+	print("Event: a_space_was_highlighted")
+	
+func unhighlight_spaces():
+	print("Event: unhighlight_spaces")
+	
+func space_selected(space):
+	print("Event: space_selected " + str(space))
