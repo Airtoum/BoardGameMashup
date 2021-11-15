@@ -8,6 +8,8 @@ signal game_state_selecting_space
 signal game_state_selecting_number
 signal game_state_animation
 
+signal piece_selected # (piece)
+
 signal highlight_spaces # (array[board_positions], moving_piece)
 
 

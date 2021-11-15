@@ -42,5 +42,5 @@ func select():
 	GameEvents.emit_signal("game_state_switched", Global.game_states.SELECT_SPACE)
 	GameEvents.emit_signal("piece_selected", get_parent())
 
-func highlight_spaces(array):
-	GameEvents.emit_signal("highlight_spaces", array)
+func highlight_spaces(array, which_piece):
+	GameEvents.emit_signal("highlight_spaces", array, which_piece)

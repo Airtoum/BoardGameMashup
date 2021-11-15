@@ -47,6 +47,7 @@ config/icon="res://icon.png"
 cons="*res://cons.gd"
 Global="*res://Global.gd"
 GameEvents="*res://GameEvents.gd"
+EventPrinter="*res://Debug/EventPrinter.gd"
 
 [physics]
 
