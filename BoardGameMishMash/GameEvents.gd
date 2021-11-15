@@ -12,12 +12,13 @@ signal piece_selected # (piece)
 
 signal highlight_spaces # (array[board_positions], moving_piece)
 
+signal space_selected # (space)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func emit_game_state_switched(new_game_state):
+	call_deferred("emit_signal", "game_state_switched", new_game_state)

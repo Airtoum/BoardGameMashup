@@ -11,9 +11,11 @@ var location: Space = null
 
 func _ready():
 	get_parent().add_to_group("Piece")
+	GameEvents.connect("game_state_animation", self, "all_make_move")
 
 func move_to_space(new_space: Space):
 	location = new_space
+	new_space.pieces.append(self)
 	
 func die():
 	location.remove(self)
@@ -30,7 +32,7 @@ func space_world_position():
 func move_to(grid_position):
 	var new_space = board.get_space_at_pos(grid_position, false)
 	if new_space:
-		location = new_space.get_node("SpaceComponent")
+		move_to_space(new_space.get_node("SpaceComponent"))
 	else:
 		push_warning("Warning! Piece " + get_parent().name + " tried to move into a spot without a space!")
 	
@@ -39,8 +41,12 @@ func get_board_position():
 		return location.board_position
 		
 func select():
-	GameEvents.emit_signal("game_state_switched", Global.game_states.SELECT_SPACE)
-	GameEvents.emit_signal("piece_selected", get_parent())
+	GameEvents.emit_game_state_switched(Global.game_states.SELECT_SPACE)
+	GameEvents.emit_signal("piece_selected", self)
 
 func highlight_spaces(array, which_piece):
 	GameEvents.emit_signal("highlight_spaces", array, which_piece)
+
+func all_make_move():
+	if Global.selected_piece == self:
+		move_to_space(Global.selected_space)

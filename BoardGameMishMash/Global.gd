@@ -11,6 +11,9 @@ var selected_space = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("game_state_switched", self, "set_game_state")
+	GameEvents.connect("piece_selected", self, "select_piece")
+	GameEvents.connect("space_selected", self, "select_space")
+	GameEvents.connect("game_state_animation", self, "end_animation")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,3 +31,12 @@ func set_game_state(new_game_state):
 			GameEvents.emit_signal("game_state_selecting_number")
 		game_states.ANIMATION:
 			GameEvents.emit_signal("game_state_animation")
+			
+func select_piece(piece):
+	selected_piece = piece
+	
+func select_space(space):
+	selected_space = space
+
+func end_animation():
+	GameEvents.emit_game_state_switched(game_states.SELECT_PIECE)
