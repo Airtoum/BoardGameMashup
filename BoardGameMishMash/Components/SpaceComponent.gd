@@ -22,9 +22,27 @@ func remove(a_piece):
 
 func my_world_position():
 	pass
+	
+func is_occupied():
+	return pieces.size() > 0
+	
+func is_occupied_by(check_piece_type: String):
+	for piece in pieces:
+		if piece.piece_type == check_piece_type:
+			return true
+	return false
+	
+func is_only_occupied_by(check_piece_types: Array):
+	for piece in pieces:
+		if not piece.get_piece_type() in check_piece_types:
+			return false
+	return true
 
-func highlight(position_array, piece):
-	is_highighted = board_position in position_array
+func highlight(position_array, piece, placement_rules: Array, can_move_into: Array):
+	var result = board_position in position_array
+	if result:
+		result = is_only_occupied_by(can_move_into)
+	is_highighted = result
 	
 func select():
 	if is_highighted:

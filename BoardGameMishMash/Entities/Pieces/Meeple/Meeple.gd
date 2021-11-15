@@ -19,7 +19,7 @@ func _input(event):
 						my_board_position + Vector2.RIGHT,
 						my_board_position + Vector2.LEFT,
 						my_board_position + Vector2.DOWN]
-		$PieceComponent.highlight_spaces(my_moves, 1)
+		$PieceComponent.highlight_spaces(my_moves, "Meeple", [], [])
 
 func _on_Meeple_mouse_entered():
 	moused_over = true

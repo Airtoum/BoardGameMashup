@@ -10,7 +10,7 @@ signal game_state_animation
 
 signal piece_selected # (piece)
 
-signal highlight_spaces # (array[board_positions], moving_piece)
+signal highlight_spaces # (array[board_positions], moving_piece, array[placement_rules], array[can_move_into])
 
 signal space_selected # (space)
 

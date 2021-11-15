@@ -3,6 +3,8 @@ extends Node2D
 class_name GamePart
 
 
+export(String) var piece_type
+
 var moused_over = false
 
 

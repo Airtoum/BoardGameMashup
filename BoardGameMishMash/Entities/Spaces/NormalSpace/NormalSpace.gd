@@ -15,8 +15,8 @@ func _input(event):
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_SPACE:
 		$SpaceComponent.select()
 
-func highlight(position_array, which_piece):
-	$SpaceComponent.highlight(position_array, which_piece)
+func highlight(position_array, which_piece, placement_rules, can_move_into):
+	$SpaceComponent.highlight(position_array, which_piece, placement_rules, can_move_into)
 	$Highlighted.visible = $SpaceComponent.is_highighted
 		
 func unhighlight():
