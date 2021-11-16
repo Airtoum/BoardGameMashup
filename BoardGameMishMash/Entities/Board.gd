@@ -39,3 +39,11 @@ func get_space_at_pos(pos, is_hole = false):
 					return entity
 	return null
 			
+
+# use during runtime, not setup
+func initialize_game_part(game_part, board_position, entity_scale):
+	entity_container.add_child(game_part)
+	(game_part as GamePart).set_board_variable(self)
+	(game_part as GamePart).set_location(board_position)
+	# this doesn't work for creating new spaces right now
+	game_part.scale = entity_scale

@@ -54,3 +54,6 @@ func select():
 	if is_highighted:
 		GameEvents.emit_game_state_switched(Global.game_states.ANIMATION)
 		GameEvents.emit_signal("space_selected", self)
+
+func initialize_new_entity(game_part):
+	self.board.initialize_game_part(game_part, board_position, get_parent().scale)

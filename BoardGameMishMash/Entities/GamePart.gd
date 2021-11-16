@@ -5,6 +5,7 @@ class_name GamePart
 
 export(String) var piece_type
 
+var board = null
 var moused_over = false
 
 
@@ -22,6 +23,7 @@ func _process(delta):
 
 
 func set_board_variable(board):
+	self.board = board
 	var piece_component = get_node_or_null("PieceComponent")
 	var space_component = get_node_or_null("SpaceComponent")
 	if piece_component:
