@@ -6,7 +6,7 @@ var board
 
 var type = cons.SPACE_NONE
 var board_position = Vector2(0,0)
-var pieces = []
+var pieces = [] # piece components
 
 var is_highighted = false
 
@@ -29,10 +29,11 @@ func is_occupied():
 	
 func is_occupied_by(check_piece_type: String):
 	for piece in pieces:
-		if piece.piece_type == check_piece_type:
+		if piece.get_parent().piece_type == check_piece_type:
 			return true
 	return false
 	
+# returns true if unoccupied, this is intended
 func is_only_occupied_by(check_piece_types: Array):
 	for piece in pieces:
 		if not piece.get_piece_type() in check_piece_types:
@@ -57,3 +58,4 @@ func select():
 
 func initialize_new_entity(game_part):
 	self.board.initialize_game_part(game_part, board_position, get_parent().scale)
+	GameEvents.emit_game_state_switched(Global.game_states.ANIMATION)

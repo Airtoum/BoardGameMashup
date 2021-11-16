@@ -19,6 +19,8 @@ func _ready():
 	GameEvents.connect("a_space_was_highlighted", self, "a_space_was_highlighted")
 	GameEvents.connect("unhighlight_spaces", self, "unhighlight_spaces")
 	GameEvents.connect("space_selected", self, "space_selected")
+	GameEvents.connect("win", self, "win")
+	GameEvents.connect("lose", self, "lose")
 
 
 func game_state_switched(new_game_state):
@@ -53,3 +55,9 @@ func unhighlight_spaces():
 	
 func space_selected(space):
 	print("Event: space_selected " + str(space))
+	
+func win():
+	print("Event: win")
+	
+func lose():
+	print("Event: lose")

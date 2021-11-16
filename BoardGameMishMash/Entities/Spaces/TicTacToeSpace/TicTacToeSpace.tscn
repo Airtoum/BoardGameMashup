@@ -4,13 +4,14 @@
 [ext_resource path="res://Entities/Spaces/TicTacToeSpace/TicTacToeSpace.gd" type="Script" id=2]
 [ext_resource path="res://Assets/TicTacToeCenter.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SpaceColored.png" type="Texture" id=4]
-[ext_resource path="res://Entities/Pieces/Meeple/Meeple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Pieces/X/X.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 165, 165 )
 
 [node name="TicTacToeSpace" type="Area2D"]
 script = ExtResource( 2 )
+piece_type = "TicTacToeSpace"
 X = ExtResource( 5 )
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 1 )]

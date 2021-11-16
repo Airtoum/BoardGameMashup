@@ -47,3 +47,9 @@ func initialize_game_part(game_part, board_position, entity_scale):
 	(game_part as GamePart).set_location(board_position)
 	# this doesn't work for creating new spaces right now
 	game_part.scale = entity_scale
+
+func is_there_piece_at(piece_type, board_position):
+	var the_space = get_space_at_pos(board_position)
+	if not the_space:
+		return false
+	return (the_space.get_node("SpaceComponent") as Space).is_occupied_by(piece_type)

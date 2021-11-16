@@ -17,6 +17,9 @@ signal unhighlight_spaces
 
 signal space_selected # (space)
 
+signal win
+signal lose
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
