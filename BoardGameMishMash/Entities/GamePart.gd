@@ -15,7 +15,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if moused_over:
+		self.modulate = Color(1.5, 1.5, 1.5, 1)
+	else:
+		self.modulate = Color(1, 1, 1, 1)
 
 
 func set_board_variable(board):
