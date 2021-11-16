@@ -21,6 +21,9 @@ func check_win():
 	var i = 0
 	for x in [-1, 0, 1]:
 		for y in [-1, 0, 1]:
+			if x == 0 and y == 0:
+				i += 1
+				continue
 			neighbor_xs[i] = board.is_there_piece_at("X", my_pos + Vector2(x, y))
 			i += 1
 	var is_win = (neighbor_xs[0] and neighbor_xs[8] or
