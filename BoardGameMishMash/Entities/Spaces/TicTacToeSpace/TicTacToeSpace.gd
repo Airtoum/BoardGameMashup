@@ -11,8 +11,9 @@ func _ready():
 
 func _input(event):
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_PIECE:
-		var new_x_piece = X.instance()
-		$SpaceComponent.initialize_new_entity(new_x_piece)
+		if not $SpaceComponent.is_occupied():
+			var new_x_piece = X.instance()
+			$SpaceComponent.initialize_new_entity(new_x_piece)
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_SPACE:
 		$SpaceComponent.select()
 

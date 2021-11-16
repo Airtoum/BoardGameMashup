@@ -4,6 +4,7 @@ class_name GamePart
 
 
 export(String) var piece_type
+export(bool) var hover_highlight
 
 var board = null
 var moused_over = false
@@ -16,7 +17,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if moused_over:
+	if moused_over and hover_highlight:
 		self.modulate = Color(1.5, 1.5, 1.5, 1)
 	else:
 		self.modulate = Color(1, 1, 1, 1)
