@@ -35,8 +35,8 @@ func space_world_position():
 	push_warning("Warning! " + get_parent().name + " is not on a space!")
 	return get_parent().position
 
-func move_to(grid_position):
-	var new_space = board.get_space_at_pos(grid_position, false)
+func move_to(grid_position, look_for_hole = false):
+	var new_space = board.get_space_at_pos(grid_position, look_for_hole)
 	if new_space:
 		move_to_space(new_space.get_node("SpaceComponent"))
 	else:

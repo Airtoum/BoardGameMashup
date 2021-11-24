@@ -38,7 +38,7 @@ func set_location(grid_position):
 	var piece_component = get_node_or_null("PieceComponent")
 	var space_component = get_node_or_null("SpaceComponent")
 	if piece_component:
-		piece_component.move_to(grid_position)
+		piece_component.move_to(grid_position, is_sliding_tile)
 	if space_component:
 		space_component.board_position = grid_position
 		

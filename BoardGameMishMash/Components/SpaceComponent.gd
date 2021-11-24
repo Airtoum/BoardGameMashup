@@ -45,6 +45,8 @@ func highlight(position_array, piece, placement_rules: Array, can_move_into: Arr
 	var result = board_position in position_array
 	if result and "NoHole" in placement_rules:
 		result = get_parent().piece_type != "HoleSpace"
+	if result and "OnlyHole" in placement_rules:
+		result = get_parent().piece_type == "HoleSpace"
 	if result:
 		result = is_only_occupied_by(can_move_into)
 	if result:
