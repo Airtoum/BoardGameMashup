@@ -5,9 +5,11 @@ class_name GamePart
 
 export(String) var piece_type
 export(bool) var hover_highlight
+onready var PieceComponent = load("res://Components/PieceComponent.tscn")
 
 var board = null
 var moused_over = false
+var is_sliding_tile = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +41,17 @@ func set_location(grid_position):
 		piece_component.move_to(grid_position)
 	if space_component:
 		space_component.board_position = grid_position
+		
+func setup_sliding_tile():
+	is_sliding_tile = true
+	var sliding_piece_component = PieceComponent.instance()
+	add_child(sliding_piece_component)
+	var piece_component = get_node_or_null("PieceComponent")
+	var space_component = get_node_or_null("SpaceComponent")
+	if piece_component:
+		piece_component.is_sliding_tile = true
+	if space_component:
+		space_component.is_sliding_tile = true
 
 func is_clicked_on(event):
 	if event is InputEventMouseButton and moused_over:

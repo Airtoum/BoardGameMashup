@@ -7,7 +7,7 @@
 [ext_resource path="res://Entities/Spaces/HoleSpace/HoleSpace.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Spaces/ColoredSpace/ColoredSpace.tscn" type="PackedScene" id=6]
 
-[node name="BottomBoard" type="TileMap"]
+[node name="MiddleBoard" type="TileMap"]
 scale = Vector2( 0.5, 0.5 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 165, 165 )

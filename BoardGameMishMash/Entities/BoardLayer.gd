@@ -18,7 +18,7 @@ func _ready():
 
 #special thanks to https://godotforums.org/discussion/22227/how-would-i-find-specific-tiles-on-the-tilemap-and-perform-an-action-on-each
 
-func generate_entitites(container, board):
+func generate_entitites(container, board, is_middle):
 	for tile_position in get_used_cells():
 		var tile_id = get_cellv(tile_position)
 		if get_cellv(tile_position) < tilescenes.size():
@@ -26,6 +26,8 @@ func generate_entitites(container, board):
 			container.add_child(new_entity)
 			(new_entity as GamePart).set_board_variable(board)
 			(new_entity as GamePart).set_location(tile_position)
+			if is_middle:
+				(new_entity as GamePart).setup_sliding_tile()
 			new_entity.position = (self.map_to_world(tile_position) + self.cell_size / 2) * self.scale
 			#deal with scale
 			new_entity.scale = self.scale * 0.5

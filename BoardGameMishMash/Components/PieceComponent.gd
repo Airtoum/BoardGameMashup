@@ -5,6 +5,7 @@ class_name Piece
 
 
 var board
+var is_sliding_tile
 
 var type = cons.PIECE_TEST
 var location: Space = null

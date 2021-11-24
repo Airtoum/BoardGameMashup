@@ -13,13 +13,21 @@ onready var entity_container = get_node(entity_container_path)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# bottom layer, spaces
 	if btm_board_path == NodePath():
 		btm_board = get_node("BottomBoard")
-	btm_board.generate_entitites(entity_container, self)
+	btm_board.generate_entitites(entity_container, self, false)
 	btm_board.visible = false
+	# middle layer, sliding tiles
+	if mid_board_path == NodePath():
+		mid_board = get_node_or_null("MiddleBoard")
+	if mid_board:
+		mid_board.generate_entitites(entity_container, self, true)
+		mid_board.visible = false
+	# top layer, pieces
 	if top_board_path == NodePath():
 		top_board = get_node("TopBoard")
-	top_board.generate_entitites(entity_container, self)
+	top_board.generate_entitites(entity_container, self, false)
 	top_board.visible = false
 
 
@@ -33,9 +41,10 @@ func get_space_at_pos(pos, is_hole = false):
 		if entity.is_in_group("Space"):
 			var space = entity.get_node("SpaceComponent") as Space
 			if space.board_position == pos:
-				if is_hole and space.type == 1320:
+				if is_hole and (entity as GamePart).piece_type == "HoleSpace":
 					return entity
-				if not is_hole and not space.type == 1320:
+				if not is_hole and not (entity as GamePart).piece_type == "HoleSpace":
+					#print(is_hole, " ", (entity as GamePart).piece_type)
 					return entity
 	return null
 			

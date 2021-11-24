@@ -3,6 +3,7 @@ extends Node
 class_name Space
 
 var board
+var is_sliding_tile
 
 var type = cons.SPACE_NONE
 var board_position = Vector2(0,0)
@@ -42,6 +43,8 @@ func is_only_occupied_by(check_piece_types: Array):
 
 func highlight(position_array, piece, placement_rules: Array, can_move_into: Array):
 	var result = board_position in position_array
+	if result and "NoHole" in placement_rules:
+		result = get_parent().piece_type != "HoleSpace"
 	if result:
 		result = is_only_occupied_by(can_move_into)
 	if result:
