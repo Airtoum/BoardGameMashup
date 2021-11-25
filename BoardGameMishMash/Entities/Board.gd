@@ -64,3 +64,20 @@ func is_there_piece_at(piece_type, board_position):
 	if not the_space:
 		return false
 	return (the_space.get_node("SpaceComponent") as Space).is_occupied_by(piece_type)
+	
+func get_piece_ids_on_space(which_space):
+	var pieces = []
+	for entity in entity_container.get_children():
+		if entity.is_in_group("Piece"):
+			if entity.my_space() == which_space:
+				pieces.append(entity)
+	return pieces
+
+func get_neighbors(board_position):
+	var neighbors = [[],[],[],[],[],[],[],[],[]]
+	var i = 0
+	for x in [-1, 0, 1]:
+		for y in [-1, 0, 1]:
+			var search_space = self.get_space_at_pos(board_position + Vector2(x, y))
+			neighbors[i] = self.get_piece_ids_on_space(search_space)
+			i += 1
