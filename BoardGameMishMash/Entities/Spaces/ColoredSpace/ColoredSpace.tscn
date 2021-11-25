@@ -10,6 +10,11 @@ extents = Vector2( 165, 165 )
 [node name="ColoredSpace" type="Area2D"]
 script = ExtResource( 1 )
 piece_type = "ColoredSpace"
+normal_color = Color( 0.2, 0.666667, 0.2, 1 )
+hover_color = Color( 0.333333, 0.733333, 0.333333, 1 )
+highlight_color = Color( 0.533333, 0.933333, 0.533333, 1 )
+hover_and_highlight_color = Color( 0.666667, 0.933333, 0.666667, 1 )
+do_hover_highlight = true
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 2 )]
 

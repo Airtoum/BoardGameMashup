@@ -31,10 +31,12 @@ func _input(event):
 
 func highlight(position_array, which_piece, placement_rules, can_move_into):
 	$SpaceComponent.highlight(position_array, which_piece, placement_rules, can_move_into)
-	$Highlighted.visible = $SpaceComponent.is_highighted
+	#$Highlighted.visible = $SpaceComponent.is_highighted
+	is_graphic_highlighted = $SpaceComponent.is_highighted
 		
 func unhighlight():
-	$Highlighted.visible = false
+	#$Highlighted.visible = false
+	is_graphic_highlighted = false
 
 func _on_NormalSpace_mouse_entered():
 	moused_over = true

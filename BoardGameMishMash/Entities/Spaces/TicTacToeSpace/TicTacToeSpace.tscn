@@ -12,7 +12,12 @@ extents = Vector2( 165, 165 )
 [node name="TicTacToeSpace" type="Area2D"]
 script = ExtResource( 2 )
 piece_type = "TicTacToeSpace"
-hover_highlight = true
+override_highlighting = true
+normal_color = Color( 0, 0, 0, 0 )
+hover_color = Color( 1, 1, 1, 0.25098 )
+highlight_color = Color( 1, 1, 1, 0.501961 )
+hover_and_highlight_color = Color( 1, 1, 1, 0.752941 )
+do_hover_highlight = true
 X = ExtResource( 5 )
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 1 )]

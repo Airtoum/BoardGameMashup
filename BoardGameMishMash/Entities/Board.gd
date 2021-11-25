@@ -1,6 +1,7 @@
 extends Node
 
 
+export(Color) var background
 export(NodePath) var top_board_path = NodePath()
 export(NodePath) var mid_board_path = NodePath()
 export(NodePath) var btm_board_path = NodePath()
@@ -13,6 +14,7 @@ onready var entity_container = get_node(entity_container_path)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	VisualServer.set_default_clear_color(background)
 	# bottom layer, spaces
 	if btm_board_path == NodePath():
 		btm_board = get_node("BottomBoard")

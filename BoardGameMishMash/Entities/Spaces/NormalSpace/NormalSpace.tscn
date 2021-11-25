@@ -11,7 +11,12 @@ extents = Vector2( 165, 165 )
 [node name="NormalSpace" type="Area2D"]
 script = ExtResource( 1 )
 piece_type = "NormalSpace"
-hover_highlight = true
+override_highlighting = true
+normal_color = Color( 1, 1, 1, 0 )
+hover_color = Color( 1, 1, 1, 0.25098 )
+highlight_color = Color( 1, 1, 1, 0.501961 )
+hover_and_highlight_color = Color( 1, 1, 1, 0.752941 )
+do_hover_highlight = true
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 2 )]
 
@@ -19,7 +24,6 @@ hover_highlight = true
 texture = ExtResource( 3 )
 
 [node name="Highlighted" type="Sprite" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0.45098 )
 texture = ExtResource( 4 )
 

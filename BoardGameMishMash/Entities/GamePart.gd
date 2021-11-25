@@ -4,11 +4,17 @@ class_name GamePart
 
 
 export(String) var piece_type
-export(bool) var hover_highlight
+export(bool) var override_highlighting = false
+export(Color) var normal_color
+export(Color) var hover_color
+export(Color) var highlight_color
+export(Color) var hover_and_highlight_color
+export(bool) var do_hover_highlight
 onready var PieceComponent = load("res://Components/PieceComponent.tscn")
 
 var board = null
 var moused_over = false
+var is_graphic_highlighted = false
 var is_sliding_tile = false
 
 
@@ -19,10 +25,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if moused_over and hover_highlight:
-		self.modulate = Color(1.5, 1.5, 1.5, 1)
+	if override_highlighting:
+		return
+	if moused_over and do_hover_highlight:
+		if is_graphic_highlighted:
+			self.modulate = hover_and_highlight_color
+		else:
+			self.modulate = hover_color
 	else:
-		self.modulate = Color(1, 1, 1, 1)
+		if is_graphic_highlighted:
+			self.modulate = highlight_color
+		else:
+			self.modulate = normal_color
 
 
 func set_board_variable(board):

@@ -9,6 +9,19 @@ func _ready():
 	GameEvents.connect("highlight_spaces", self, "highlight")
 	GameEvents.connect("unhighlight_spaces", self, "unhighlight")
 
+func _process(delta):
+	if moused_over and do_hover_highlight:
+		if is_graphic_highlighted:
+			$Highlighted.modulate = hover_and_highlight_color
+		else:
+			$Highlighted.modulate = hover_color
+	else:
+		if is_graphic_highlighted:
+			$Highlighted.modulate = highlight_color
+		else:
+			$Highlighted.modulate = normal_color
+	
+
 func _input(event):
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_PIECE:
 		if not $SpaceComponent.is_occupied():
@@ -19,10 +32,12 @@ func _input(event):
 
 func highlight(position_array, which_piece, placement_rules, can_move_into):
 	$SpaceComponent.highlight(position_array, which_piece, placement_rules, can_move_into)
-	$Highlighted.visible = $SpaceComponent.is_highighted
+	#$Highlighted.visible = $SpaceComponent.is_highighted
+	is_graphic_highlighted = $SpaceComponent.is_highighted
 		
 func unhighlight():
-	$Highlighted.visible = false
+	is_graphic_highlighted = false
+	#$Highlighted.visible = false
 
 func _on_mouse_entered():
 	moused_over = true

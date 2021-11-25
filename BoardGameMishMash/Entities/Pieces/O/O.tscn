@@ -10,6 +10,10 @@ extents = Vector2( 174, 174 )
 [node name="O" type="Area2D"]
 script = ExtResource( 1 )
 piece_type = "O"
+normal_color = Color( 1, 1, 1, 1 )
+hover_color = Color( 1, 0, 1, 1 )
+highlight_color = Color( 1, 0, 1, 1 )
+hover_and_highlight_color = Color( 1, 0, 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
