@@ -9,7 +9,7 @@ var type = cons.SPACE_NONE
 var board_position = Vector2(0,0)
 var pieces = [] # piece components
 
-var is_highighted = false
+var is_highighted_set = []
 
 func _ready():
 	get_parent().add_to_group("Space")
@@ -51,13 +51,20 @@ func highlight(position_array, piece, placement_rules: Array, can_move_into: Arr
 		result = is_only_occupied_by(can_move_into)
 	if result:
 		GameEvents.emit_signal("a_space_was_highlighted")
-	is_highighted = result
+	if result:
+		is_highighted_set.append(piece)
 	
 func unhighlight():
-	is_highighted = false
+	is_highighted_set.clear()
+	
+func is_highlighted():
+	return not is_highighted_set.empty()
+	
+func is_highlighted_for(piece):
+	return piece in is_highighted_set
 	
 func select():
-	if is_highighted:
+	if not is_highighted_set.empty():
 		GameEvents.emit_game_state_switched(Global.game_states.ANIMATION)
 		GameEvents.emit_signal("space_selected", self)
 

@@ -30,7 +30,7 @@ func _input(event):
 func highlight(position_array, which_piece, placement_rules, can_move_into):
 	$SpaceComponent.highlight(position_array, which_piece, placement_rules, can_move_into)
 	#$Highlighted.visible = $SpaceComponent.is_highighted
-	self.is_graphic_highlighted = $SpaceComponent.is_highighted
+	self.is_graphic_highlighted = $SpaceComponent.is_highlighted()
 		
 func unhighlight():
 	#$Highlighted.visible = false

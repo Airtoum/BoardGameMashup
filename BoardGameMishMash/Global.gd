@@ -5,7 +5,7 @@ enum game_states {SELECT_PIECE, SELECT_SPACE, SELECT_NUMBER, ANIMATION, AFTER_MO
 
 var game_state = game_states.SELECT_PIECE
 
-var selected_piece = null
+var selected_piece = []
 var selected_space = null
 
 var any_spaces_availible = false
@@ -41,13 +41,19 @@ func set_game_state(new_game_state):
 			GameEvents.emit_signal("game_state_after_move")
 			
 func select_piece(piece):
-	selected_piece = piece
+	selected_piece.append(piece)
 	
 func select_space(space):
 	selected_space = space
 	
+func is_piece_selected(piece):
+	return piece in selected_piece
+	
+func is_space_selected(space):
+	return space == selected_space
+	
 func cancel_selection():
-	selected_piece = null
+	selected_piece = []
 	selected_space = null
 	any_spaces_availible = false
 	GameEvents.emit_game_state_switched(game_states.SELECT_PIECE)
@@ -60,7 +66,7 @@ func cancel_if_no_spaces_availible():
 		cancel_selection()
 
 func end_animation():
-	selected_piece = null
+	selected_piece = []
 	selected_space = null
 	any_spaces_availible = false
 	GameEvents.emit_game_state_switched(game_states.SELECT_PIECE)

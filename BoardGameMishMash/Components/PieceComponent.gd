@@ -54,5 +54,7 @@ func highlight_spaces(position_array, which_piece, placement_rules, can_move_int
 	GameEvents.emit_signal("highlight_spaces", position_array, which_piece, placement_rules, can_move_into)
 
 func all_make_move():
-	if Global.selected_piece == self:
-		move_to_space(Global.selected_space)
+	if Global.is_piece_selected(self):
+		var space_to_move_to = Global.selected_space
+		if space_to_move_to.is_highlighted_for(get_piece_type()):
+			move_to_space(Global.selected_space)

@@ -23,7 +23,7 @@ tile_data = PoolIntArray( 1, 0, 0, 7, 3, 0, 8, 3, 0, 9, 3, 0, 65536, 0, 0, 65537
 tile_data = PoolIntArray( 131082, 1, 0 )
 
 [node name="TopBoard" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( 1, 0, 0, 65536, 0, 0, 65537, 0, 0, 65540, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131082, 11, 0, 196617, 11, 0, 262153, 11, 0, 327689, 11, 0, 393220, 0, 0, 393221, 0, 0 )
+tile_data = PoolIntArray( 1, 0, 0, 65536, 0, 0, 65537, 0, 0, 65540, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 196617, 11, 0, 262153, 11, 0, 327689, 11, 0, 393220, 0, 0, 393221, 0, 0 )
 tilescenes = [ ExtResource( 5 ), null, null, null, null, null, null, null, null, null, ExtResource( 7 ), ExtResource( 6 ) ]
 
 [node name="Entities" type="Node2D" parent="."]
