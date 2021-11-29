@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/TopBoard/TopBoard.tres" type="TileSet" id=1]
 [ext_resource path="res://Entities/BoardLayer.gd" type="Script" id=2]
 [ext_resource path="res://Entities/Pieces/Meeple/Meeple.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Pieces/X/X.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/Pieces/O/O.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number4.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number6.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number7.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number8.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number5.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Entities/Pieces/Number/Numbers/Number2.tscn" type="PackedScene" id=13]
 
 [node name="TopBoard" type="TileMap"]
 scale = Vector2( 0.5, 0.5 )
@@ -12,4 +20,4 @@ tile_set = ExtResource( 1 )
 cell_size = Vector2( 165, 165 )
 format = 1
 script = ExtResource( 2 )
-tilescenes = [ ExtResource( 3 ), null, ExtResource( 4 ), ExtResource( 5 ) ]
+tilescenes = [ ExtResource( 3 ), null, ExtResource( 6 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 5 ) ]
