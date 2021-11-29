@@ -5,7 +5,6 @@ class_name BoardLayer
 export(Array, PackedScene) var tilescenes: Array
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -31,3 +30,4 @@ func generate_entitites(container, board, is_middle):
 			new_entity.position = (self.map_to_world(tile_position) + self.cell_size / 2) * self.scale
 			#deal with scale
 			new_entity.scale = self.scale * 0.5
+	

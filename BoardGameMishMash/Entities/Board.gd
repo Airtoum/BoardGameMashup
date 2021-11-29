@@ -70,10 +70,10 @@ func get_piece_ids_on_space(which_space):
 	for entity in entity_container.get_children():
 		if entity.is_in_group("Piece"):
 			if entity.my_space() == which_space:
-				pieces.append(entity)
+				pieces.append(entity.piece_name)
 	return pieces
 
-func get_neighbors(board_position):
+func get_neighbor_ids(board_position):
 	var neighbors = [[],[],[],[],[],[],[],[],[]]
 	var i = 0
 	for x in [-1, 0, 1]:

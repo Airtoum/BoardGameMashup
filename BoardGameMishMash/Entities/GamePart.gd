@@ -72,3 +72,9 @@ func is_clicked_on(event):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			return true
 	return false
+
+func transfer_board_pos():
+	var piece_component = get_node_or_null("PieceComponent")
+	var space_component = get_node_or_null("SpaceComponent")
+	if piece_component and space_component:
+		space_component.board_position = piece_component.get_board_position()
