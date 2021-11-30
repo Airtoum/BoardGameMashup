@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Board.gd" type="Script" id=1]
+[ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
+
+[node name="Test C" type="Node2D"]
+position = Vector2( 2, 1 )
+script = ExtResource( 1 )
+background = Color( 0.301961, 0.301961, 0.301961, 1 )
+top_board_path = NodePath("TopBoard")
+mid_board_path = NodePath("MiddleBoard")
+btm_board_path = NodePath("BottomBoard")
+entity_container_path = NodePath("Entities")
+
+[node name="BottomBoard" parent="." instance=ExtResource( 3 )]
+tile_data = PoolIntArray( 65539, 3, 0, 65540, 3, 0, 65541, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 131078, 2, 0, 131079, 2, 0, 131080, 2, 0, 131081, 2, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 2, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0 )
+
+[node name="MiddleBoard" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0 )
+
+[node name="TopBoard" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 65540, 11, 0, 65541, 11, 0, 131075, 11, 0, 131079, 2, 0, 131080, 2, 0, 131081, 2, 0, 196612, 11, 0, 196614, 2, 0, 196615, 2, 0, 196616, 2, 0, 196617, 10, 0, 262150, 2, 0, 262151, 2, 0, 262152, 2, 0, 262153, 2, 0 )
+
+[node name="Entities" type="Node2D" parent="."]

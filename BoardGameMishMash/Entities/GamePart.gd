@@ -78,3 +78,10 @@ func transfer_board_pos():
 	var space_component = get_node_or_null("SpaceComponent")
 	if piece_component and space_component:
 		space_component.board_position = piece_component.get_board_position()
+		
+func remove_from_board():
+	var piece_component = get_node_or_null("PieceComponent")
+	var space_component = get_node_or_null("SpaceComponent")
+	if piece_component:
+		piece_component.die()
+	self.queue_free()
