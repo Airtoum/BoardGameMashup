@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/Pieces/Chess/ChessWhitePiece.gd" type="Script" id=1]
+[ext_resource path="res://Components/PieceComponent.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/ChessBishopWhite.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 174, 174 )
+
+[node name="ChessWhiteBishop" type="Area2D"]
+script = ExtResource( 1 )
+piece_type = "ChessWhiteBishop"
+normal_color = Color( 1, 1, 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="PieceComponent" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
