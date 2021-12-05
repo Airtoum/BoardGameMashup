@@ -59,3 +59,4 @@ func all_make_move():
 		if space_to_move_to.is_highlighted_for(get_piece_type()):
 			move_to_space(Global.selected_space)
 			get_parent().transfer_board_pos()
+			get_parent().all_make_move()

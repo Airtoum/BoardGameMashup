@@ -12,6 +12,8 @@ onready var btm_board: BoardLayer = get_node_or_null(btm_board_path) as BoardLay
 export(NodePath) var entity_container_path
 onready var entity_container = get_node(entity_container_path)
 
+export(int) var promotion_y_coord
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	VisualServer.set_default_clear_color(background)
@@ -66,6 +68,18 @@ func is_there_piece_at(piece_type, board_position):
 	if not the_space:
 		return false
 	return (the_space.get_node("SpaceComponent") as Space).is_occupied_by(piece_type)
+	
+func is_there_only_piece_at(piece_types, board_position):
+	var the_space = get_space_at_pos(board_position)
+	if not the_space:
+		return false
+	return (the_space.get_node("SpaceComponent") as Space).is_only_occupied_by(piece_types)
+	
+func must_only_piece_at(piece_types, board_position):
+	var the_space = get_space_at_pos(board_position)
+	if not the_space:
+		return false
+	return (the_space.get_node("SpaceComponent") as Space).must_only_occupied_by(piece_types)
 	
 # returns array of gameparts
 func get_piece_ids_on_space(which_space):

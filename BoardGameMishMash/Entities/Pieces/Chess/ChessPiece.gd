@@ -46,7 +46,7 @@ func _process(delta):
 	self.position = $PieceComponent.space_world_position()
 
 func _input(event):
-	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_PIECE:
+	if is_white and is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_PIECE:
 		$PieceComponent.select()
 		var my_board_position = $PieceComponent.get_board_position()
 		var my_relative_moves = []
@@ -76,7 +76,28 @@ func _input(event):
 		var my_moves = []
 		for rel_move in my_relative_moves:
 			my_moves.append(my_board_position + rel_move)
-		$PieceComponent.highlight_spaces(my_moves, self.piece_type, ["NoHole"], can_take)
+		if piece_type == "ChessWhitePawn":
+			$PieceComponent.highlight_spaces(my_moves, self.piece_type, ["NoHole"], [])
+			my_moves = []
+			if self.board.must_only_piece_at(can_take, my_board_position + Vector2(-1, -1)):
+				my_moves.append(my_board_position + Vector2(-1, -1))
+			if self.board.must_only_piece_at(can_take, my_board_position + Vector2(1, -1)):
+				my_moves.append(my_board_position + Vector2(1, -1))
+			$PieceComponent.highlight_spaces(my_moves, self.piece_type, ["NoHole"], can_take)
+		else:
+			$PieceComponent.highlight_spaces(my_moves, self.piece_type, ["NoHole"], can_take)
+
+func remove_from_board():
+	if piece_type == "ChessWhiteKing":
+		GameEvents.emit_signal("lose")
+	if piece_type == "ChessBlackKing":
+		GameEvents.emit_signal("win")
+	.remove_from_board()
+
+func all_make_move():
+	for taking_piece in $PieceComponent.location.get_pieces():
+		if taking_piece.piece_type in can_take:
+			taking_piece.remove_from_board()
 
 func _on_mouse_entered():
 	moused_over = true

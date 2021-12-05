@@ -88,3 +88,7 @@ func remove_from_board():
 	if piece_component:
 		piece_component.die()
 	self.queue_free()
+	
+# override me!
+func all_make_move():
+	pass

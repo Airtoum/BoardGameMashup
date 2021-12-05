@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Entities/Pieces/Chess/ChessWhitePiece.gd" type="Script" id=1]
+[ext_resource path="res://Entities/Pieces/Chess/ChessPiece.gd" type="Script" id=1]
 [ext_resource path="res://Components/PieceComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/ChessPawnWhite.png" type="Texture" id=3]
 
@@ -11,6 +11,7 @@ extents = Vector2( 174, 174 )
 script = ExtResource( 1 )
 piece_type = "ChessWhitePawn"
 normal_color = Color( 1, 1, 1, 1 )
+is_white = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )

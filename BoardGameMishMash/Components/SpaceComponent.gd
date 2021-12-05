@@ -21,6 +21,12 @@ func add(new_piece):
 	
 func remove(a_piece):
 	pieces.erase(a_piece)
+	
+func get_pieces():
+	var result = []
+	for piece in pieces:
+		result.append(piece.get_parent())
+	return result
 
 func my_world_position():
 	pass
@@ -40,6 +46,13 @@ func is_only_occupied_by(check_piece_types: Array):
 		if not piece.get_piece_type() in check_piece_types:
 			return false
 	return true
+	
+# returns false if unoccupied, this is intended
+func must_only_occupied_by(check_piece_types: Array):
+	for piece in pieces:
+		if not piece.get_piece_type() in check_piece_types:
+			return false
+	return is_occupied()
 
 func highlight(position_array, piece, placement_rules: Array, can_move_into: Array):
 	var result = board_position in position_array
