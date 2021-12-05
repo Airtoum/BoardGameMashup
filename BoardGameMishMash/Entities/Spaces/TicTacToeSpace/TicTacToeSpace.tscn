@@ -1,10 +1,24 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Components/SpaceComponent.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entities/Spaces/TicTacToeSpace/TicTacToeSpace.gd" type="Script" id=2]
 [ext_resource path="res://Assets/TicTacToeCenter.png" type="Texture" id=3]
-[ext_resource path="res://Assets/SpaceColored.png" type="Texture" id=4]
+[ext_resource path="res://Assets/JustColor.png" type="Texture" id=4]
 [ext_resource path="res://Entities/Pieces/X/X.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/TicTacToeVertical.png" type="Texture" id=6]
+[ext_resource path="res://Assets/TicTacToeTopRight.png" type="Texture" id=7]
+[ext_resource path="res://Assets/TicTacToeHorizontal.png" type="Texture" id=8]
+[ext_resource path="res://Assets/TicTacToeBottom.png" type="Texture" id=9]
+[ext_resource path="res://Assets/TicTacToeBottomOnly.png" type="Texture" id=10]
+[ext_resource path="res://Assets/TicTacToeBottomLeft.png" type="Texture" id=11]
+[ext_resource path="res://Assets/TicTacToeLeft.png" type="Texture" id=12]
+[ext_resource path="res://Assets/TicTacToeTopOnly.png" type="Texture" id=13]
+[ext_resource path="res://Assets/TicTacToeTop.png" type="Texture" id=14]
+[ext_resource path="res://Assets/TicTacToeLeftOnly.png" type="Texture" id=15]
+[ext_resource path="res://Assets/TicTacToeBottomRight.png" type="Texture" id=16]
+[ext_resource path="res://Assets/TicTacToeRightOnly.png" type="Texture" id=17]
+[ext_resource path="res://Assets/TicTacToeRight.png" type="Texture" id=18]
+[ext_resource path="res://Assets/TicTacToeTopLeft.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 165, 165 )
@@ -19,6 +33,7 @@ highlight_color = Color( 1, 1, 1, 0.501961 )
 hover_and_highlight_color = Color( 1, 1, 1, 0.752941 )
 do_hover_highlight = true
 X = ExtResource( 5 )
+tiles = [ ExtResource( 3 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 3 ) ]
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 1 )]
 

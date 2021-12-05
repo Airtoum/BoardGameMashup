@@ -66,6 +66,9 @@ func setup_sliding_tile():
 		piece_component.is_sliding_tile = true
 	if space_component:
 		space_component.is_sliding_tile = true
+		
+func setup():
+	pass
 
 func is_clicked_on(event):
 	if event is InputEventMouseButton and moused_over:

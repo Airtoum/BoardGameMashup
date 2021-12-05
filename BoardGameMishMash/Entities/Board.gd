@@ -31,6 +31,8 @@ func _ready():
 		top_board = get_node("TopBoard")
 	top_board.generate_entitites(entity_container, self, false)
 	top_board.visible = false
+	for space in get_tree().get_nodes_in_group("Space"):
+		space.setup()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -82,3 +84,25 @@ func get_neighbor_ids(board_position):
 			neighbors[i] = self.get_piece_ids_on_space(search_space)
 			i += 1
 	return neighbors
+
+func get_adjacent_spaces(board_position, is_hole):
+	var result = [null, null, null, null, null, null, null, null, null]
+	result[0] = (get_space_at_pos(board_position + Vector2(-1, -1), is_hole))
+	result[1] = (get_space_at_pos(board_position + Vector2(0, -1), is_hole))
+	result[2] = (get_space_at_pos(board_position + Vector2(1, -1), is_hole))
+	result[3] = (get_space_at_pos(board_position + Vector2(-1, 0), is_hole))
+	result[4] = (get_space_at_pos(board_position + Vector2(0, 0), is_hole))
+	result[5] = (get_space_at_pos(board_position + Vector2(1, 0), is_hole))
+	result[6] = (get_space_at_pos(board_position + Vector2(-1, 1), is_hole))
+	result[7] = (get_space_at_pos(board_position + Vector2(0, 1), is_hole))
+	result[8] = (get_space_at_pos(board_position + Vector2(1, 1), is_hole))
+	return result
+	
+func is_adjacent_spaces_matching(board_position, is_hole, which_type):
+	var neighbors = get_adjacent_spaces(board_position, is_hole)
+	var result = [false, false, false, false, false, false, false, false, false]
+	for i in range(neighbors.size()):
+		var n = neighbors[i]
+		if n:
+			result[i] = n.piece_type == which_type
+	return result
