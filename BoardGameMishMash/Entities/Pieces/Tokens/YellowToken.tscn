@@ -2,16 +2,15 @@
 
 [ext_resource path="res://Entities/Pieces/Tokens/Tokens.gd" type="Script" id=1]
 [ext_resource path="res://Components/PieceComponent.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/TokenRed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/TokenYellow.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 174, 174 )
 
-[node name="RedToken" type="Area2D"]
+[node name="YellowToken" type="Area2D"]
 script = ExtResource( 1 )
-piece_type = "RedToken"
+piece_type = "YellowToken"
 normal_color = Color( 1, 1, 1, 1 )
-is_red = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
