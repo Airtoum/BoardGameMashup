@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Pieces/Chess/ChessPiece.gd" type="Script" id=1]
 [ext_resource path="res://Components/PieceComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/ChessPawnBlack.png" type="Texture" id=3]
-
+[ext_resource path="res://Entities/Pieces/Chess/ChessBlackQueen.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 174, 174 )
@@ -12,6 +12,7 @@ extents = Vector2( 174, 174 )
 script = ExtResource( 1 )
 piece_type = "ChessBlackPawn"
 normal_color = Color( 1, 1, 1, 1 )
+promotes_into = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )

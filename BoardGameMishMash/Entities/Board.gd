@@ -12,7 +12,8 @@ onready var btm_board: BoardLayer = get_node_or_null(btm_board_path) as BoardLay
 export(NodePath) var entity_container_path
 onready var entity_container = get_node(entity_container_path)
 
-export(int) var promotion_y_coord
+export(int) var promotion_rank_white
+export(int) var promotion_rank_black
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

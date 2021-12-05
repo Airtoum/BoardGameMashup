@@ -2,6 +2,7 @@ extends GamePart
 
 
 export(bool) var is_white
+export(PackedScene) var promotes_into
 
 var can_take = []
 
@@ -98,6 +99,12 @@ func all_make_move():
 	for taking_piece in $PieceComponent.location.get_pieces():
 		if taking_piece.piece_type in can_take:
 			taking_piece.remove_from_board()
+	var board_pos = $PieceComponent.get_board_position()
+	if (piece_type == "ChessWhitePawn" and board_pos.y == board.promotion_rank_white or
+		piece_type == "ChessBlackPawn" and board_pos.y == board.promotion_rank_black ):
+		var promoted_piece = promotes_into.instance()
+		self.board.initialize_game_part(promoted_piece, board_pos, self.scale)
+		remove_from_board()
 
 func _on_mouse_entered():
 	moused_over = true
