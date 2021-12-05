@@ -39,7 +39,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-# may return null
+# may return null or a single gamepart
 func get_space_at_pos(pos, is_hole = false):
 	for entity in entity_container.get_children():
 		if entity.is_in_group("Space"):
@@ -67,6 +67,7 @@ func is_there_piece_at(piece_type, board_position):
 		return false
 	return (the_space.get_node("SpaceComponent") as Space).is_occupied_by(piece_type)
 	
+# returns array of gameparts
 func get_piece_ids_on_space(which_space):
 	var pieces = []
 	for entity in entity_container.get_children():
@@ -74,6 +75,10 @@ func get_piece_ids_on_space(which_space):
 			if entity.get_node("PieceComponent").my_space() == which_space:
 				pieces.append(entity.piece_type)
 	return pieces
+
+# returns array of gameparts
+func get_pieces_at_pos(pos, is_hole = false):
+	return get_piece_ids_on_space(get_space_at_pos(pos, is_hole))
 
 func get_neighbor_ids(board_position):
 	var neighbors = [[],[],[],[],[],[],[],[],[]]
