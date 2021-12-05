@@ -11,7 +11,7 @@ func _ready():
 	self.base_piece_type = piece_type
 	self.piece_type = piece_type + str(number)
 	$Sprite.texture = ordered_textures[number]
-	GameEvents.connect("game_state_animation", self, "check_win")
+	GameEvents.connect("game_state_check_win", self, "check_win")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

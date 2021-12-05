@@ -4,7 +4,7 @@ extends GamePart
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameEvents.connect("game_state_animation", self, "check_lose")
+	GameEvents.connect("game_state_check_win", self, "check_lose")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

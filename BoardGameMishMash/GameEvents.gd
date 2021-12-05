@@ -8,6 +8,7 @@ signal game_state_selecting_space
 signal game_state_selecting_number
 signal game_state_animation
 signal game_state_after_move
+signal game_state_check_win
 
 signal piece_selected # (piece)
 

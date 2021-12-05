@@ -14,6 +14,7 @@ func _ready():
 	GameEvents.connect("game_state_selecting_number", self, "game_state_selecting_number")
 	GameEvents.connect("game_state_animation", self, "game_state_animation")
 	GameEvents.connect("game_state_after_move", self, "game_state_after_move")
+	GameEvents.connect("game_state_check_win", self, "game_state_check_win")
 	GameEvents.connect("piece_selected", self, "piece_selected")
 	GameEvents.connect("highlight_spaces", self, "highlight_spaces")
 	GameEvents.connect("a_space_was_highlighted", self, "a_space_was_highlighted")
@@ -40,6 +41,9 @@ func game_state_animation():
 	
 func game_state_after_move():
 	print("Event: game_state_after_move")
+	
+func game_state_check_win():
+	print("Event: game_state_check_win")
 	
 func piece_selected(piece):
 	print("Event: piece_selected " + str(piece))

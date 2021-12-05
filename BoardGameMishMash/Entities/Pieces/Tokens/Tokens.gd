@@ -6,7 +6,7 @@ export(bool) var is_red
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GameEvents.connect("game_state_animation", self, "fall")
+	GameEvents.connect("game_state_after_move", self, "fall")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,7 +25,7 @@ func fall():
 			break
 		$PieceComponent.move_to_space(below_space.get_node("SpaceComponent"))
 	if my_pos != starting_position:
-		GameEvents.emit_signal("game_state_animation")
+		GameEvents.emit_signal("game_state_after_move")
 
 
 func _on_mouse_entered():
