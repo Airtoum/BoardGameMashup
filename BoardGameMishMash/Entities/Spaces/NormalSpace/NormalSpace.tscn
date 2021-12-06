@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Spaces/NormalSpace/NormalSpace.gd" type="Script" id=1]
 [ext_resource path="res://Components/SpaceComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/SpaceTransparent.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SpaceColored.png" type="Texture" id=4]
+[ext_resource path="res://Assets/NormalSpaceInverted.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 165, 165 )
@@ -17,18 +18,18 @@ hover_color = Color( 1, 1, 1, 0.25098 )
 highlight_color = Color( 1, 1, 1, 0.501961 )
 hover_and_highlight_color = Color( 1, 1, 1, 0.752941 )
 do_hover_highlight = true
+inverted_outline = ExtResource( 5 )
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 2 )]
-
-[node name="Outline" type="Sprite" parent="."]
-texture = ExtResource( 3 )
 
 [node name="Highlighted" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.45098 )
 texture = ExtResource( 4 )
 
+[node name="Outline" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
 [connection signal="mouse_entered" from="." to="." method="_on_NormalSpace_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_NormalSpace_mouse_exited"]

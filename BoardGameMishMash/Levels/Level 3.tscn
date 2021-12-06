@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Entities/Board.gd" type="Script" id=1]
+[ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=5]
+
+[node name="Level 3" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" type="Control" parent="."]
+margin_left = 471.0
+margin_top = 300.0
+margin_right = 1495.0
+margin_bottom = 900.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+background = Color( 0.152941, 0.152941, 0.152941, 1 )
+top_board_path = NodePath("TopBoard")
+mid_board_path = NodePath("MiddleBoard")
+btm_board_path = NodePath("BottomBoard")
+entity_container_path = NodePath("Entities")
+override_colored_space = true
+space_normal_color = Color( 0.662745, 0.337255, 0.337255, 1 )
+space_hover_color = Color( 0.760784, 0.392157, 0.211765, 1 )
+space_highlight_color = Color( 0.882353, 0.501961, 0.368627, 1 )
+space_hover_and_highlight_color = Color( 0.952941, 0.592157, 0.466667, 1 )
+invert_normal_spaces = true
+
+[node name="BottomBoard" parent="Board" instance=ExtResource( 3 )]
+tile_data = PoolIntArray( -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 2, 0, -65533, 2, 0, 3, 2, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 2, 0 )
+
+[node name="MiddleBoard" parent="Board" instance=ExtResource( 4 )]
+tile_data = PoolIntArray( -65533, 1, 0, 3, 1, 0 )
+
+[node name="TopBoard" parent="Board" instance=ExtResource( 2 )]
+tile_data = PoolIntArray( -65539, 0, 0, 131071, 1, 0 )
+
+[node name="Entities" type="Node2D" parent="Board"]
+
+[node name="GameplayUI" parent="Board" instance=ExtResource( 5 )]

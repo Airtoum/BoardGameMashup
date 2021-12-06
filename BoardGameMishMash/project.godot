@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Board Game Mish Mash"
-run/main_scene="res://Levels/_Test_A.tscn"
+run/main_scene="res://Levels/Level 1.tscn"
 config/icon="res://icon.png"
 
 [autoload]

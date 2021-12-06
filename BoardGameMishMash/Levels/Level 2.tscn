@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Board.gd" type="Script" id=1]
 [ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Level 3.tscn" type="PackedScene" id=6]
 
 [node name="Level 2" type="Control"]
 anchor_left = 0.5
@@ -32,6 +33,7 @@ top_board_path = NodePath("../../Level 2/Board/TopBoard")
 mid_board_path = NodePath("../../Level 2/Board/MiddleBoard")
 btm_board_path = NodePath("../../Level 2/Board/BottomBoard")
 entity_container_path = NodePath("../../Level 2/Board/Entities")
+next_level = ExtResource( 6 )
 override_colored_space = true
 space_normal_color = Color( 0.52549, 0.266667, 0.266667, 1 )
 space_hover_color = Color( 0.596078, 0.32549, 0.192157, 1 )
@@ -45,7 +47,7 @@ tile_data = PoolIntArray( -65539, 3, 0, -65538, 3, 0, -65537, 3, 0, -3, 3, 0, -2
 tile_data = PoolIntArray( -65535, 1, 0, -65534, 1, 0, -65533, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0 )
 
 [node name="TopBoard" parent="Board" instance=ExtResource( 2 )]
-tile_data = PoolIntArray( -65538, 11, 0, -65537, 11, 0, -3, 11, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, 65534, 11, 0, 0, 2, 0, 1, 2, 0, 2, 10, 0, 3, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0 )
+tile_data = PoolIntArray( -65539, 11, 0, -65537, 11, 0, -3, 11, 0, -65535, 2, 0, -65534, 2, 0, -65533, 2, 0, 65534, 11, 0, 0, 2, 0, 1, 2, 0, 2, 10, 0, 3, 2, 0, 65536, 2, 0, 65537, 2, 0, 65538, 2, 0, 65539, 2, 0 )
 
 [node name="Entities" type="Node2D" parent="Board"]
 

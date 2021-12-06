@@ -1,15 +1,16 @@
 extends GamePart
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export(Texture) var inverted_outline
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("highlight_spaces", self, "highlight")
 	GameEvents.connect("unhighlight_spaces", self, "unhighlight")
+
+func setup():
+	if board.invert_normal_spaces:
+		$Outline.texture = inverted_outline
 
 func _process(delta):
 	if moused_over and do_hover_highlight:

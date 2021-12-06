@@ -23,6 +23,8 @@ export(Color) var space_hover_color
 export(Color) var space_highlight_color
 export(Color) var space_hover_and_highlight_color
 
+export(bool) var invert_normal_spaces
+
 var history = []
 
 # Called when the node enters the scene tree for the first time.
