@@ -17,6 +17,8 @@ func generate_moves_line(pos, direction, length):
 	var result = []
 	for i in range(1, length + 1):
 		var obstructing_pieces = self.board.get_pieces_at_pos(pos + direction * i)
+		if not board.get_space_at_pos(pos + direction * i):
+			return result
 		if obstructing_pieces.size() > 0:
 			var all_takeable = true
 			for piece in obstructing_pieces:
