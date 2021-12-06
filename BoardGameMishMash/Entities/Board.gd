@@ -15,8 +15,12 @@ onready var entity_container = get_node(entity_container_path)
 export(int) var promotion_rank_white
 export(int) var promotion_rank_black
 
+var history = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameEvents.connect("game_state_check_win", self, "call_deferred", ["record_board"])
+	
 	VisualServer.set_default_clear_color(background)
 	# bottom layer, spaces
 	if btm_board_path == NodePath():
@@ -36,11 +40,13 @@ func _ready():
 	top_board.visible = false
 	for space in get_tree().get_nodes_in_group("Space"):
 		space.setup()
+	record_board()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if event.is_action_pressed("undo"):
+		undo()
+
 
 # may return null or a single gamepart
 func get_space_at_pos(pos, is_hole = false):
@@ -126,3 +132,19 @@ func is_adjacent_spaces_matching(board_position, is_hole, which_type):
 		if n:
 			result[i] = n.piece_type == which_type
 	return result
+
+func record_board():
+	var saved_board_state = {}
+	for entity in entity_container.get_children():
+		saved_board_state[entity.name] = ((entity as GamePart).save_ent())
+	history.append(saved_board_state)
+
+func undo():
+	history.pop_back()
+	var load_state = history[-1]
+	for entity in entity_container.get_children():
+		#entity.get_parent().remove_child(entity)
+		(entity as GamePart).load_ent(load_state[entity.name])
+	#for entity in load_state:
+	#	entity_container.add_child(entity)
+

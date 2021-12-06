@@ -87,8 +87,19 @@ func remove_from_board():
 	var space_component = get_node_or_null("SpaceComponent")
 	if piece_component:
 		piece_component.die()
-	self.queue_free()
+	#self.queue_free()
+	get_parent().remove_child(self)
 	
 # override me!
 func all_make_move():
 	pass
+
+# override me!
+func save_ent():
+	return {"piece_type": self.piece_type,
+			"is_sliding_tile": self.is_sliding_tile}
+
+# override me!
+func load_ent(data: Dictionary):
+	self.piece_type = data["piece_type"]
+	self.is_sliding_tile = data["is_sliding_tile"]

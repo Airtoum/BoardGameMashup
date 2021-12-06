@@ -61,3 +61,16 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	moused_over = false
+
+
+func save_ent():
+	return {"piece_type": self.piece_type,
+			"is_sliding_tile": self.is_sliding_tile,
+			"is_red": self.is_red,
+			"$PieceComponent.location": $PieceComponent.location}
+
+func load_ent(data: Dictionary):
+	self.piece_type = data["piece_type"]
+	self.is_sliding_tile = data["is_sliding_tile"]
+	self.is_red = data["is_red"]
+	$PieceComponent.location = data["$PieceComponent.location"]
