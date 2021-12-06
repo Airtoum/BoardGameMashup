@@ -33,10 +33,13 @@ func save_ent():
 	return {"piece_type": self.piece_type,
 			"is_sliding_tile": self.is_sliding_tile,
 			"$SpaceComponent.board_position": $SpaceComponent.board_position,
-			"$SpaceComponent.pieces": $SpaceComponent.pieces}
+			"$SpaceComponent.pieces": $SpaceComponent.pieces.duplicate(),
+			"$PieceComponent.location": $PieceComponent.location if get_node_or_null("PieceComponent") else null}
 
 func load_ent(data: Dictionary):
 	self.piece_type = data["piece_type"]
 	self.is_sliding_tile = data["is_sliding_tile"]
 	$SpaceComponent.board_position = data["$SpaceComponent.board_position"]
 	$SpaceComponent.pieces = data["$SpaceComponent.pieces"]
+	if get_node_or_null("PieceComponent"):
+		$PieceComponent.location = data["$PieceComponent.location"]

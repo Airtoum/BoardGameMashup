@@ -13,6 +13,8 @@ func _process(delta):
 
 
 func check_win():
+	if not is_inside_tree():
+		return
 	var my_pos = $PieceComponent.get_board_position()
 	var neighbor_xs = [false, false, false, false, true, false, false, false, false]
 	# 0 1 2

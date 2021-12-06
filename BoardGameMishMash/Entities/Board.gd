@@ -136,15 +136,25 @@ func is_adjacent_spaces_matching(board_position, is_hole, which_type):
 func record_board():
 	var saved_board_state = {}
 	for entity in entity_container.get_children():
-		saved_board_state[entity.name] = ((entity as GamePart).save_ent())
+		saved_board_state[entity] = ((entity as GamePart).save_ent())
 	history.append(saved_board_state)
 
 func undo():
+	if history.size() <= 1:
+		return
 	history.pop_back()
-	var load_state = history[-1]
+	var load_state: Dictionary = history[-1]
+	var entities_to_load = load_state.duplicate()
 	for entity in entity_container.get_children():
-		#entity.get_parent().remove_child(entity)
-		(entity as GamePart).load_ent(load_state[entity.name])
-	#for entity in load_state:
-	#	entity_container.add_child(entity)
+		if not entity in load_state:
+			(entity as GamePart).remove_from_board()
+		else:
+			(entity as GamePart).load_ent(load_state[entity])
+			entities_to_load[entity] = null
+	# reparent all entities that weren't in entity_container but need to be loaded
+	for entity in entities_to_load:
+		if entities_to_load[entity] != null:
+			entity_container.add_child(entity)
+			entity.load_ent(entities_to_load[entity])
+	Global.cancel_selection()
 

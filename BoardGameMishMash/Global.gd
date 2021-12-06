@@ -10,6 +10,8 @@ var selected_space = null
 
 var any_spaces_availible = false
 
+var emitted_check_win_already = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("game_state_switched", self, "set_game_state")
@@ -85,6 +87,9 @@ func end_animation():
 	GameEvents.emit_game_state_switched(game_states.AFTER_MOVE)
 	
 func end_after_move():
+	if emitted_check_win_already:
+		return
+	emitted_check_win_already = true	
 	GameEvents.emit_game_state_switched(game_states.CHECK_WIN)
 
 func win():
@@ -95,6 +100,7 @@ func lose():
 	game_state = game_states.LOSE
 
 func end_check_win():
+	emitted_check_win_already = false
 	if not game_state in [game_states.WIN, game_states.LOSE]:
 		return_to_select_piece()
 
