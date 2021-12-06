@@ -4,6 +4,8 @@ extends GamePart
 export(bool) var is_white
 export(PackedScene) var promotes_into
 
+var moved_yet = false
+
 var can_take = []
 
 # Called when the node enters the scene tree for the first time.
@@ -54,6 +56,8 @@ func _input(event):
 		match piece_type:
 			"ChessWhitePawn":
 				my_relative_moves = [Vector2.UP]
+				if not moved_yet:
+					my_relative_moves.append(Vector2.UP * 2)
 			"ChessWhiteRook":
 				my_relative_moves += generate_rook_moves(my_board_position, 18)
 			"ChessWhiteBishop":
@@ -105,6 +109,7 @@ func all_make_move():
 		var promoted_piece = promotes_into.instance()
 		self.board.initialize_game_part(promoted_piece, board_pos, self.scale)
 		remove_from_board()
+	moved_yet = true
 
 func _on_mouse_entered():
 	moused_over = true
@@ -119,6 +124,7 @@ func save_ent():
 			"is_white": self.is_white,
 			"promotes_into": self.promotes_into,
 			"can_take": self.can_take,
+			"moved_yet": self.moved_yet,
 			"$PieceComponent.location": $PieceComponent.location}
 
 func load_ent(data: Dictionary):
@@ -127,4 +133,5 @@ func load_ent(data: Dictionary):
 	self.is_white = data["is_white"]
 	self.promotes_into = data["promotes_into"]
 	self.can_take = data["can_take"]
+	self.moved_yet = data["moved_yet"]
 	$PieceComponent.location = data["$PieceComponent.location"]
