@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Board.gd" type="Script" id=1]
 [ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Level 10.tscn" type="PackedScene" id=6]
 
 [node name="Level 6" type="Control"]
 anchor_left = 0.5
@@ -34,6 +35,7 @@ btm_board_path = NodePath("../../Level 6/Board/BottomBoard")
 entity_container_path = NodePath("../../Level 6/Board/Entities")
 promotion_rank_white = -3
 promotion_rank_black = 3
+next_level = ExtResource( 6 )
 override_colored_space = true
 space_normal_color = Color( 0.552941, 0.337255, 0.662745, 1 )
 space_hover_color = Color( 0.760784, 0.211765, 0.596078, 1 )

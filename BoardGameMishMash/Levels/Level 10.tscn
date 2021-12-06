@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Entities/Board.gd" type="Script" id=1]
 [ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/You Win.tscn" type="PackedScene" id=6]
 
 [node name="Level 10" type="Control"]
 anchor_left = 0.5
@@ -18,7 +19,7 @@ __meta__ = {
 }
 
 [node name="Board" type="Control" parent="."]
-margin_left = 512.0
+margin_left = 446.0
 margin_top = 300.0
 margin_right = 1495.0
 margin_bottom = 867.0
@@ -34,6 +35,7 @@ btm_board_path = NodePath("BottomBoard")
 entity_container_path = NodePath("Entities")
 promotion_rank_white = -4
 promotion_rank_black = 3
+next_level = ExtResource( 6 )
 override_colored_space = true
 space_normal_color = Color( 0.552941, 0.337255, 0.662745, 1 )
 space_hover_color = Color( 0.760784, 0.211765, 0.596078, 1 )
@@ -52,7 +54,7 @@ tile_data = PoolIntArray( -262140, 1, 0, -196603, 1, 0, -196602, 1, 0, -65538, 1
 
 [node name="TopBoard" parent="Board" instance=ExtResource( 2 )]
 scale = Vector2( 0.4, 0.4 )
-tile_data = PoolIntArray( -262139, 25, 0, -196603, 25, 0, -65539, 0, 0, -65538, 18, 0, -65537, 19, 0, -131067, 18, 0, -5, 23, 0, -3, 0, 0, -65536, 22, 0, -65534, 21, 0, -65531, 25, 0, 65531, 18, 0, 65532, 11, 0, 65533, 0, 0, 65534, 10, 0, 5, 25, 0, 131067, 11, 0, 131068, 20, 0, 131069, 15, 0, 131070, 2, 0, 65537, 18, 0, 65538, 18, 0, 65541, 25, 0, 196603, 15, 0, 196604, 15, 0, 196605, 15, 0, 196606, 2, 0, 262139, 15, 0, 262140, 15, 0, 262141, 12, 0, 262142, 10, 0 )
+tile_data = PoolIntArray( -262141, 19, 0, -262139, 25, 0, -262138, 20, 0, -196603, 25, 0, -65539, 0, 0, -65538, 18, 0, -65537, 19, 0, -131067, 18, 0, -5, 23, 0, -3, 0, 0, -65536, 22, 0, -65534, 21, 0, -65531, 25, 0, 65531, 18, 0, 65532, 11, 0, 65533, 0, 0, 65534, 10, 0, 5, 25, 0, 131067, 11, 0, 131068, 20, 0, 131069, 15, 0, 131070, 2, 0, 65537, 18, 0, 65538, 18, 0, 65541, 25, 0, 196603, 15, 0, 196604, 15, 0, 196605, 15, 0, 196606, 21, 0, 262139, 15, 0, 262140, 15, 0, 262141, 12, 0, 262142, 2, 0 )
 
 [node name="Entities" type="Node2D" parent="Board"]
 
