@@ -89,6 +89,7 @@ func _input(event):
 			$PieceComponent.highlight_spaces(my_moves, self.piece_type, ["NoHole"], can_take)
 
 func remove_from_board():
+	#print("PIECE TAKEN")
 	if piece_type == "ChessWhiteKing":
 		GameEvents.emit_signal("lose")
 	if piece_type == "ChessBlackKing":

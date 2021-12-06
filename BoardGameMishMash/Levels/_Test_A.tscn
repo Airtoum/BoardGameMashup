@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Entities/Board.gd" type="Script" id=1]
 [ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=5]
 
 [node name="Test A" type="Node2D"]
 position = Vector2( 2, 1 )
@@ -23,3 +24,7 @@ tile_data = PoolIntArray( 131082, 1, 0 )
 tile_data = PoolIntArray( 1, 0, 0, 65536, 0, 0, 65537, 0, 0, 65540, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 196617, 11, 0, 262144, 2, 0, 262145, 3, 0, 262146, 4, 0, 262153, 11, 0, 327680, 5, 0, 327681, 6, 0, 327682, 7, 0, 327689, 11, 0, 393216, 8, 0, 393217, 9, 0, 393220, 0, 0, 393221, 0, 0 )
 
 [node name="Entities" type="Node2D" parent="."]
+
+[node name="GameplayUI" parent="." instance=ExtResource( 5 )]
+margin_right = 1024.0
+margin_bottom = 600.0

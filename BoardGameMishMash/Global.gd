@@ -83,7 +83,12 @@ func cancel_if_no_spaces_availible():
 	if not any_spaces_availible:
 		cancel_selection()
 
+func terminal_state():
+	return game_state in [game_states.WIN, game_states.LOSE]
+
 func end_animation():
+	if terminal_state():
+		return
 	GameEvents.emit_game_state_switched(game_states.AFTER_MOVE)
 	
 func end_after_move():
