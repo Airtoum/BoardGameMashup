@@ -15,6 +15,12 @@ onready var entity_container = get_node(entity_container_path)
 export(int) var promotion_rank_white
 export(int) var promotion_rank_black
 
+export(bool) var override_colored_space
+export(Color) var space_normal_color
+export(Color) var space_hover_color
+export(Color) var space_highlight_color
+export(Color) var space_hover_and_highlight_color
+
 var history = []
 
 # Called when the node enters the scene tree for the first time.

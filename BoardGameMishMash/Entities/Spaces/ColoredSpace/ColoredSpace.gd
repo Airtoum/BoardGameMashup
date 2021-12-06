@@ -10,7 +10,14 @@ extends GamePart
 func _ready():
 	GameEvents.connect("highlight_spaces", self, "highlight")
 	GameEvents.connect("unhighlight_spaces", self, "unhighlight")
-	
+
+func setup():
+	if board.override_colored_space:
+		self.normal_color = board.space_normal_color
+		self.hover_color = board.space_hover_color
+		self.highlight_color = board.space_highlight_color
+		self.hover_and_highlight_color = board.space_hover_and_highlight_color
+
 func _process(delta):
 	if is_sliding_tile:
 		self.position = $PieceComponent.space_world_position()
