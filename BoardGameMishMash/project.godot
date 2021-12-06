@@ -49,6 +49,11 @@ Global="*res://Global.gd"
 GameEvents="*res://GameEvents.gd"
 EventPrinter="*res://Debug/EventPrinter.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
+
 [input]
 
 cancel={
