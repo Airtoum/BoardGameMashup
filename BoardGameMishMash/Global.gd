@@ -1,7 +1,7 @@
 extends Node
 
 
-enum game_states {SELECT_PIECE, SELECT_SPACE, SELECT_NUMBER, ANIMATION, AFTER_MOVE, CHECK_WIN}
+enum game_states {SELECT_PIECE, SELECT_SPACE, SELECT_NUMBER, ANIMATION, AFTER_MOVE, CHECK_WIN, WIN, LOSE}
 
 var game_state = game_states.SELECT_PIECE
 
@@ -19,6 +19,8 @@ func _ready():
 	GameEvents.connect("game_state_after_move", self, "call_deferred", ["end_after_move"])
 	GameEvents.connect("game_state_check_win", self, "call_deferred", ["end_check_win"])
 	GameEvents.connect("a_space_was_highlighted", self, "a_space_was_highlighted")
+	GameEvents.connect("win", self, "win")
+	GameEvents.connect("lose", self, "lose")
 
 
 func _input(event):
@@ -43,6 +45,10 @@ func set_game_state(new_game_state):
 			GameEvents.emit_signal("game_state_after_move")
 		game_states.CHECK_WIN:
 			GameEvents.emit_signal("game_state_check_win")
+		game_states.WIN:
+			pass
+		game_states.LOSE:
+			pass
 			
 func select_piece(piece):
 	selected_piece.append(piece)
@@ -75,8 +81,15 @@ func end_animation():
 func end_after_move():
 	GameEvents.emit_game_state_switched(game_states.CHECK_WIN)
 
+func win():
+	game_state = game_states.WIN
+	
+func lose():
+	game_state = game_states.LOSE
+
 func end_check_win():
-	return_to_select_piece()
+	if not game_state in [game_states.WIN, game_states.LOSE]:
+		return_to_select_piece()
 
 func return_to_select_piece():
 	selected_piece = []
