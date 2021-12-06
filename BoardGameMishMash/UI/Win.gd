@@ -14,7 +14,8 @@ func _ready():
 
 
 func on_win():
-	visible = true
+	if Global.game_state != Global.game_states.LOSE:
+		visible = true
 	
 func on_lose():
 	visible = false

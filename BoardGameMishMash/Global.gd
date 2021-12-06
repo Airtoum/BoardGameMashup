@@ -82,7 +82,8 @@ func end_after_move():
 	GameEvents.emit_game_state_switched(game_states.CHECK_WIN)
 
 func win():
-	game_state = game_states.WIN
+	if game_state != game_states.LOSE:
+		game_state = game_states.WIN
 	
 func lose():
 	game_state = game_states.LOSE
