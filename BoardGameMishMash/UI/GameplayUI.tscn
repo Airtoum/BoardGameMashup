@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/Lose.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Nexa Bold.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI/Win.gd" type="Script" id=3]
+[ext_resource path="res://Assets/NextButtonPressed.png" type="Texture" id=4]
+[ext_resource path="res://Assets/NextButtonUncolored.png" type="Texture" id=5]
+[ext_resource path="res://Assets/NextButtonHover.png" type="Texture" id=6]
+[ext_resource path="res://Assets/NextButtonNormal.png" type="Texture" id=7]
+[ext_resource path="res://UI/NextLevelButton.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 150
@@ -41,6 +46,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureButton" type="TextureButton" parent="GameplayUI/Win"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -59.2438
+margin_top = 77.515
+margin_right = 84.7562
+margin_bottom = 152.515
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 5 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Lose" type="Label" parent="GameplayUI"]
 visible = false
 anchor_left = 0.5
@@ -62,3 +87,4 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="pressed" from="GameplayUI/Win/TextureButton" to="GameplayUI/Win/TextureButton" method="_on_TextureButton_pressed"]

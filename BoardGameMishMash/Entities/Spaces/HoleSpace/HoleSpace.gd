@@ -16,7 +16,6 @@ func setup():
 	# 3 4 5
 	# 6 7 8
 	var texture_index = int(bitmask[1]) + 2*int(bitmask[3]) + 4*int(bitmask[5]) + 8*int(bitmask[7])
-	print(texture_index)
 	$Outline.texture = tiles[texture_index]
 
 func _input(event):

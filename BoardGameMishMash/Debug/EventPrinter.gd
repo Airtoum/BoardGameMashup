@@ -22,6 +22,7 @@ func _ready():
 	GameEvents.connect("space_selected", self, "space_selected")
 	GameEvents.connect("win", self, "win")
 	GameEvents.connect("lose", self, "lose")
+	GameEvents.connect("next_level", self, "next_level")
 
 
 func game_state_switched(new_game_state):
@@ -65,3 +66,6 @@ func win():
 	
 func lose():
 	print("Event: lose")
+	
+func next_level():
+	print("Event: next_level")

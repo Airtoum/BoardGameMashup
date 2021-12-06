@@ -21,6 +21,7 @@ signal space_selected # (space)
 signal win
 signal lose
 
+signal next_level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

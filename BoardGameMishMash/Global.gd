@@ -23,6 +23,7 @@ func _ready():
 	GameEvents.connect("a_space_was_highlighted", self, "a_space_was_highlighted")
 	GameEvents.connect("win", self, "win")
 	GameEvents.connect("lose", self, "lose")
+	GameEvents.connect("next_level", self, "next_level")
 
 
 func _input(event):
@@ -114,3 +115,6 @@ func return_to_select_piece():
 	selected_space = null
 	any_spaces_availible = false
 	GameEvents.emit_game_state_switched(game_states.SELECT_PIECE)
+
+func next_level():
+	return_to_select_piece()

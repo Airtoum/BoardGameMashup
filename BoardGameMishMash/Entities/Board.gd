@@ -15,6 +15,8 @@ onready var entity_container = get_node(entity_container_path)
 export(int) var promotion_rank_white
 export(int) var promotion_rank_black
 
+export(PackedScene) var next_level
+
 export(bool) var override_colored_space
 export(Color) var space_normal_color
 export(Color) var space_hover_color
@@ -26,6 +28,7 @@ var history = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("game_state_check_win", self, "call_deferred", ["record_board"])
+	GameEvents.connect("next_level", self, "next_level")
 	
 	VisualServer.set_default_clear_color(background)
 	# bottom layer, spaces
@@ -164,3 +167,5 @@ func undo():
 			entity.load_ent(entities_to_load[entity])
 	Global.cancel_selection()
 
+func next_level():
+	get_tree().change_scene_to(next_level)
