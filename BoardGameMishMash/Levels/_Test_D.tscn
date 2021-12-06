@@ -26,5 +26,3 @@ tile_data = PoolIntArray( 65538, 1, 0, 131074, 17, 0, 327690, 0, 0 )
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="GameplayUI" parent="." instance=ExtResource( 5 )]
-margin_right = 1024.0
-margin_bottom = 600.0

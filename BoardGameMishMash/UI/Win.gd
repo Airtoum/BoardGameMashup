@@ -17,9 +17,11 @@ func _ready():
 func on_win():
 	if Global.game_state != Global.game_states.LOSE:
 		visible = true
+	call_deferred("update_visible")
 	
 func on_lose():
 	visible = false
+	call_deferred("update_visible")
 	
 func update_visible():
 	visible = Global.game_state == Global.game_states.WIN
