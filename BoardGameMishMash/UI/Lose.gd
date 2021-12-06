@@ -14,7 +14,7 @@ func _ready():
 
 
 func on_win():
-	visible = true
+	visible = false
 	
 func on_lose():
-	visible = false
+	visible = true

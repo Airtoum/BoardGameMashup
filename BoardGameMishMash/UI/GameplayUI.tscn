@@ -1,18 +1,57 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://UI/Win.gd" type="Script" id=1]
+[ext_resource path="res://UI/Lose.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Nexa Bold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Win.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 150
+outline_size = 8
+use_filter = true
+font_data = ExtResource( 2 )
 
 [node name="GameplayUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Win" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-text = "YOU WIN!"
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.87451, 0.909804, 0.0705882, 1 )
+custom_colors/font_outline_modulate = Color( 0.498039, 0.470588, 0, 1 )
+text = "WIN"
+align = 1
+valign = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lose" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -475.49
+margin_top = -339.685
+margin_right = 548.51
+margin_bottom = 260.315
+rect_rotation = 5.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.909804, 0.0705882, 0.0705882, 1 )
+custom_colors/font_outline_modulate = Color( 0.498039, 0, 0, 1 )
+text = "LOSE"
 align = 1
 valign = 1
 script = ExtResource( 1 )
