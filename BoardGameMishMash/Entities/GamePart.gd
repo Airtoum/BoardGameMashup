@@ -25,6 +25,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Global.undo_debug:
+		var space_component = get_node_or_null("SpaceComponent")
+		if space_component:
+			if space_component.is_occupied():
+				rotation_degrees = 45
+			else:
+				rotation_degrees = 0
 	if override_highlighting:
 		return
 	if moused_over and do_hover_highlight:

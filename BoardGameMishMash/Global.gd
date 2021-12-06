@@ -12,6 +12,8 @@ var any_spaces_availible = false
 
 var emitted_check_win_already = false
 
+var undo_debug = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("game_state_switched", self, "set_game_state")

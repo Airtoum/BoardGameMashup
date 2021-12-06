@@ -145,12 +145,14 @@ func is_adjacent_spaces_matching(board_position, is_hole, which_type):
 	return result
 
 func record_board():
+	print("RECORDING BOARD")
 	var saved_board_state = {}
 	for entity in entity_container.get_children():
 		saved_board_state[entity] = ((entity as GamePart).save_ent())
 	history.append(saved_board_state)
 
 func undo():
+	print("UNDOING")
 	if history.size() <= 1:
 		return
 	history.pop_back()
@@ -167,7 +169,7 @@ func undo():
 		if entities_to_load[entity] != null:
 			entity_container.add_child(entity)
 			entity.load_ent(entities_to_load[entity])
-	Global.cancel_selection()
+	Global.return_to_select_piece()
 
 func next_level():
 	get_tree().change_scene_to(next_level)

@@ -56,6 +56,6 @@ func load_ent(data: Dictionary):
 	self.piece_type = data["piece_type"]
 	self.is_sliding_tile = data["is_sliding_tile"]
 	$SpaceComponent.board_position = data["$SpaceComponent.board_position"]
-	$SpaceComponent.pieces = data["$SpaceComponent.pieces"]
+	$SpaceComponent.pieces = data["$SpaceComponent.pieces"].duplicate()
 	if get_node_or_null("PieceComponent"):
 		$PieceComponent.location = data["$PieceComponent.location"]
