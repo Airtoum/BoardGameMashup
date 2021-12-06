@@ -26,6 +26,12 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("cancel"):
 		cancel_selection()
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
+		game_state = game_states.SELECT_PIECE
+		selected_piece = []
+		selected_space = null
+		any_spaces_availible = false
 
 func set_game_state(new_game_state):
 	game_state = new_game_state
