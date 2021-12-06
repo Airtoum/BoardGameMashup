@@ -13,6 +13,8 @@ func _process(delta):
 
 
 func check_collected():
+	if not is_inside_tree():
+		return
 	var my_pos = $PieceComponent.get_board_position()
 	var is_win = board.is_there_piece_at("Meeple", my_pos)
 	if is_win:
