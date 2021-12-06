@@ -11,6 +11,10 @@ func _ready():
 func setup():
 	if board.invert_normal_spaces:
 		$Outline.texture = inverted_outline
+	if board.override_transparent_spaces:
+		self.normal_color = board.trans_normal_color
+	if board.override_transparent_sliding_tiles and self.is_sliding_tile:
+		self.normal_color = board.trans_sliding_normal_color
 
 func _process(delta):
 	if moused_over and do_hover_highlight:

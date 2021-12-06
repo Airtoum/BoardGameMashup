@@ -32,6 +32,7 @@ func _process(delta):
 				rotation_degrees = 45
 			else:
 				rotation_degrees = 0
+	
 	if override_highlighting:
 		return
 	if moused_over and do_hover_highlight:

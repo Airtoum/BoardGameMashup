@@ -25,6 +25,11 @@ export(Color) var space_hover_and_highlight_color
 
 export(bool) var invert_normal_spaces
 
+export(bool) var override_transparent_spaces
+export(Color) var trans_normal_color
+export(bool) var override_transparent_sliding_tiles
+export(Color) var trans_sliding_normal_color
+
 var history = []
 
 # Called when the node enters the scene tree for the first time.
@@ -118,7 +123,8 @@ func get_neighbor_ids(board_position):
 	for y in [-1, 0, 1]:
 		for x in [-1, 0, 1]:
 			var search_space = self.get_space_at_pos(board_position + Vector2(x, y))
-			neighbors[i] = self.get_piece_ids_on_space(search_space)
+			if search_space:
+				neighbors[i] = self.get_piece_ids_on_space(search_space)
 			i += 1
 	return neighbors
 

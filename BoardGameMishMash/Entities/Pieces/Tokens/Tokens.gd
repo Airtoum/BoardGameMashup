@@ -34,6 +34,8 @@ func extend_check(pos, dx, dy):
 
 # win/lose if four tokens are in a row
 func check_win():
+	if not is_inside_tree():
+		return
 	var pos = $PieceComponent.get_board_position()
 	var neighbors = board.get_neighbor_ids(pos)
 	var bitmask = [false, false, false, false, false, false, false, false, false]

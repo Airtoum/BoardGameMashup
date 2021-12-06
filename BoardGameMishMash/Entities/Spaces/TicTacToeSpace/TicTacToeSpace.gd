@@ -18,9 +18,16 @@ func setup():
 	# 6 7 8
 	var texture_index = int(bitmask[1]) + 2*int(bitmask[3]) + 4*int(bitmask[5]) + 8*int(bitmask[7])
 	$Outline.texture = tiles[texture_index]
+	
+	if board.override_transparent_spaces:
+		self.normal_color = board.trans_normal_color
+	if board.override_transparent_sliding_tiles and self.is_sliding_tile:
+		self.normal_color = board.trans_sliding_normal_color
 
 
 func _process(delta):
+	if is_sliding_tile:
+		self.position = $PieceComponent.space_world_position()
 	if moused_over and do_hover_highlight:
 		if is_graphic_highlighted:
 			$Highlighted.modulate = hover_and_highlight_color
@@ -38,8 +45,19 @@ func _input(event):
 		if not $SpaceComponent.is_occupied():
 			var new_x_piece = X.instance()
 			$SpaceComponent.initialize_new_entity(new_x_piece)
+			return
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_SPACE:
 		$SpaceComponent.select()
+	if is_sliding_tile:
+		var PieceComponent = get_node_or_null("PieceComponent")
+		if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_PIECE:
+			PieceComponent.select()
+			var my_board_position = PieceComponent.get_board_position()
+			var my_moves = [my_board_position + Vector2.UP,
+							my_board_position + Vector2.RIGHT,
+							my_board_position + Vector2.LEFT,
+							my_board_position + Vector2.DOWN]
+			PieceComponent.highlight_spaces(my_moves, "TicTacToeSpace", ["OnlyHole"], [])
 
 func highlight(position_array, which_piece, placement_rules, can_move_into):
 	$SpaceComponent.highlight(position_array, which_piece, placement_rules, can_move_into)
