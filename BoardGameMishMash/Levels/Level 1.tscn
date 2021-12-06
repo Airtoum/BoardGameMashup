@@ -46,11 +46,11 @@ tile_data = PoolIntArray( -1, 2, 0, -65536, 2, 0, -65535, 2, 0, 65535, 2, 0, 0, 
 
 [node name="MiddleBoard" parent="Board" instance=ExtResource( 4 )]
 scale = Vector2( 0.75, 0.75 )
-tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 131071, 1, 0, 65536, 1, 0 )
+tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0 )
 
 [node name="TopBoard" parent="Board" instance=ExtResource( 2 )]
 scale = Vector2( 0.75, 0.75 )
-tile_data = PoolIntArray( -1, 2, 0, -65536, 4, 0, -65535, 6, 0, 65535, 5, 0, 0, 3, 0, 1, 7, 0, 131071, 8, 0, 65536, 9, 0 )
+tile_data = PoolIntArray( -1, 2, 0, -65536, 4, 0, 65535, 5, 0, 0, 3, 0, 1, 6, 0, 131071, 8, 0, 65536, 9, 0, 65537, 7, 0 )
 
 [node name="Entities" type="Node2D" parent="Board"]
 

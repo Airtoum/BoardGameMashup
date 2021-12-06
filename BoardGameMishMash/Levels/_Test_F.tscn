@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Entities/Board.gd" type="Script" id=1]
+[ext_resource path="res://Entities/TopBoard/TopBoard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Entities/BottomBoard/BottomBoard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/MiddleBoard/MiddleBoard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/GameplayUI.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/You Win.tscn" type="PackedScene" id=6]
+
+[node name="Level 10" type="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Board" type="Control" parent="."]
+margin_left = 446.0
+margin_top = 300.0
+margin_right = 1495.0
+margin_bottom = 867.0
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+background = Color( 0.368627, 0.25098, 0.494118, 1 )
+top_board_path = NodePath("TopBoard")
+mid_board_path = NodePath("MiddleBoard")
+btm_board_path = NodePath("BottomBoard")
+entity_container_path = NodePath("Entities")
+promotion_rank_white = -4
+promotion_rank_black = 3
+next_level = ExtResource( 6 )
+override_colored_space = true
+space_normal_color = Color( 0.552941, 0.337255, 0.662745, 1 )
+space_hover_color = Color( 0.760784, 0.211765, 0.596078, 1 )
+space_highlight_color = Color( 0.882353, 0.368627, 0.741176, 1 )
+space_hover_and_highlight_color = Color( 0.952941, 0.466667, 0.807843, 1 )
+override_transparent_sliding_tiles = true
+trans_sliding_normal_color = Color( 1, 0, 0, 0.192157 )
+
+[node name="BottomBoard" parent="Board" instance=ExtResource( 3 )]
+scale = Vector2( 0.4, 0.4 )
+tile_data = PoolIntArray( -196611, 0, 0, -196610, 0, 0, -196609, 0, 0, -262144, 0, 0, -262143, 3, 0, -262142, 3, 0, -262141, 3, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 3, 0, -196606, 3, 0, -196605, 3, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 3, 0, -131070, 3, 0, -131069, 3, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 2, 0, -65536, 2, 0, -65535, 2, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 2, 0, 65536, 2, 0, 65537, 2, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0 )
+
+[node name="MiddleBoard" parent="Board" instance=ExtResource( 4 )]
+scale = Vector2( 0.4, 0.4 )
+tile_data = PoolIntArray( -1, 1, 0, -65536, 1, 0, -65535, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 131071, 1, 0, 65536, 1, 0 )
+
+[node name="TopBoard" parent="Board" instance=ExtResource( 2 )]
+scale = Vector2( 0.4, 0.4 )
+tile_data = PoolIntArray( -196609, 6, 0, -262143, 11, 0, -262142, 10, 0, -262141, 11, 0, -131075, 24, 0, -196608, 13, 0, -196607, 10, 0, -196606, 11, 0, -196605, 10, 0, -65539, 0, 0, -65538, 15, 0, -65537, 23, 0, -131072, 1, 0, -131071, 10, 0, -131070, 11, 0, -3, 24, 0, -2, 18, 0, -1, 6, 0, -65536, 7, 0, 65533, 24, 0, 65534, 18, 0, 65535, 25, 0, 0, 8, 0, 131069, 24, 0, 131070, 25, 0, 131071, 10, 0, 65536, 9, 0, 196605, 25, 0, 196606, 0, 0, 196607, 12, 0, 131072, 16, 0 )
+
+[node name="Entities" type="Node2D" parent="Board"]
+
+[node name="GameplayUI" parent="Board" instance=ExtResource( 5 )]

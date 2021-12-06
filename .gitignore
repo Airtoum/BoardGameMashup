@@ -7,3 +7,19 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+Build/boardgamemishmash.zip
+Build/web_boardgamemishmash.zip
+Build/web_boardgamemishmash/favicon.png
+Build/web_boardgamemishmash/index.html
+Build/web_boardgamemishmash/index.js
+Build/web_boardgamemishmash/index.pck
+Build/web_boardgamemishmash/index.png
+Build/web_boardgamemishmash/index.wasm
+Build2/boardgamemishmash.zip
+Build2/web_boardgamemishmash.zip
+Build2/web_boardgamemishmash/favicon.png
+Build2/web_boardgamemishmash/index.html
+Build2/web_boardgamemishmash/index.js
+Build2/web_boardgamemishmash/index.pck
+Build2/web_boardgamemishmash/index.png
+Build2/web_boardgamemishmash/index.wasm

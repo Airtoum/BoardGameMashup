@@ -41,6 +41,7 @@ space_normal_color = Color( 0.662745, 0.337255, 0.337255, 1 )
 space_hover_color = Color( 0.760784, 0.392157, 0.211765, 1 )
 space_highlight_color = Color( 0.882353, 0.501961, 0.368627, 1 )
 space_hover_and_highlight_color = Color( 0.952941, 0.592157, 0.466667, 1 )
+darken_holes = true
 
 [node name="BottomBoard" parent="Board" instance=ExtResource( 3 )]
 scale = Vector2( 0.4, 0.4 )

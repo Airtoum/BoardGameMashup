@@ -30,6 +30,8 @@ export(Color) var trans_normal_color
 export(bool) var override_transparent_sliding_tiles
 export(Color) var trans_sliding_normal_color
 
+export(bool) var darken_holes
+
 var history = []
 
 # Called when the node enters the scene tree for the first time.

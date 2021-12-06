@@ -17,6 +17,8 @@ func setup():
 	# 6 7 8
 	var texture_index = int(bitmask[1]) + 2*int(bitmask[3]) + 4*int(bitmask[5]) + 8*int(bitmask[7])
 	$Outline.texture = tiles[texture_index]
+	if board.darken_holes:
+		self.normal_color = Color(0.65, 0.65, 0.65)
 
 func _input(event):
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_SPACE:
