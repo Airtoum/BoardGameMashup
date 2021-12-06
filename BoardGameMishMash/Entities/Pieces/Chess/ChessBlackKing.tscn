@@ -8,6 +8,7 @@
 extents = Vector2( 174, 174 )
 
 [node name="ChessBlackKing" type="Area2D"]
+z_index = 3
 script = ExtResource( 1 )
 piece_type = "ChessBlackKing"
 normal_color = Color( 1, 1, 1, 1 )

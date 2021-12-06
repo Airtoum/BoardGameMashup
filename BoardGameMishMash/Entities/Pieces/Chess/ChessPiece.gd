@@ -73,7 +73,7 @@ func _input(event):
 			"ChessWhiteKing":
 				my_relative_moves += generate_rook_moves(my_board_position, 1)
 				my_relative_moves += generate_bishop_moves(my_board_position, 1)
-		print("MY RELATIVE MOVES: " + str(my_relative_moves) )
+		#print("MY RELATIVE MOVES: " + str(my_relative_moves) )
 		var my_moves = []
 		for rel_move in my_relative_moves:
 			my_moves.append(my_board_position + rel_move)
@@ -89,7 +89,6 @@ func _input(event):
 			$PieceComponent.highlight_spaces(my_moves, self.piece_type, ["NoHole"], can_take)
 
 func remove_from_board():
-	#print("PIECE TAKEN")
 	if piece_type == "ChessWhiteKing":
 		GameEvents.emit_signal("lose")
 	if piece_type == "ChessBlackKing":

@@ -1,15 +1,23 @@
 extends GamePart
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+export(Array, Texture) var tiles
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameEvents.connect("highlight_spaces", self, "highlight")
 	GameEvents.connect("unhighlight_spaces", self, "unhighlight")
+
+func setup():
+	var bitmask = board.is_adjacent_spaces_matching($SpaceComponent.board_position, true, self.piece_type)
+	# 0 1 2
+	# 3 4 5
+	# 6 7 8
+	var texture_index = int(bitmask[1]) + 2*int(bitmask[3]) + 4*int(bitmask[5]) + 8*int(bitmask[7])
+	print(texture_index)
+	$Outline.texture = tiles[texture_index]
 
 func _input(event):
 	if is_clicked_on(event) and Global.game_state == Global.game_states.SELECT_SPACE:

@@ -66,6 +66,7 @@ func setup_sliding_tile():
 		piece_component.is_sliding_tile = true
 	if space_component:
 		space_component.is_sliding_tile = true
+	z_index += 2
 		
 func setup():
 	pass

@@ -1,14 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Entities/Spaces/HoleSpace/HoleSpace.gd" type="Script" id=1]
 [ext_resource path="res://Components/SpaceComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/SlidingHoleCenter.png" type="Texture" id=3]
 [ext_resource path="res://Assets/SpaceColored.png" type="Texture" id=4]
+[ext_resource path="res://Assets/SlidingHoleTopLeft.png" type="Texture" id=5]
+[ext_resource path="res://Assets/SlidingHoleTopEdge.png" type="Texture" id=6]
+[ext_resource path="res://Assets/SlidingHoleLeftEdge.png" type="Texture" id=7]
+[ext_resource path="res://Assets/SlidingHoleRightEdge.png" type="Texture" id=8]
+[ext_resource path="res://Assets/SlidingHoleLeftNotch.png" type="Texture" id=9]
+[ext_resource path="res://Assets/SlidingHoleBottomEdge.png" type="Texture" id=10]
+[ext_resource path="res://Assets/SlidingHoleBottomRight.png" type="Texture" id=11]
+[ext_resource path="res://Assets/SlidingHoleTopNotch.png" type="Texture" id=12]
+[ext_resource path="res://Assets/SlidingHoleVertical.png" type="Texture" id=13]
+[ext_resource path="res://Assets/SlidingHoleTopRight.png" type="Texture" id=14]
+[ext_resource path="res://Assets/SlidingHoleBottomLeft.png" type="Texture" id=15]
+[ext_resource path="res://Assets/SlidingHoleBottomNotch.png" type="Texture" id=16]
+[ext_resource path="res://Assets/SlidingHoleRightNotch.png" type="Texture" id=17]
+[ext_resource path="res://Assets/SlidingHoleHorizontal.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 165, 165 )
 
 [node name="HoleSpace" type="Area2D"]
+z_index = 1
 script = ExtResource( 1 )
 piece_type = "HoleSpace"
 normal_color = Color( 1, 1, 1, 1 )
@@ -16,6 +31,7 @@ hover_color = Color( 1.2, 1.2, 1.2, 1 )
 highlight_color = Color( 1.3, 1.3, 1.3, 1 )
 hover_and_highlight_color = Color( 1.4, 1.4, 1.4, 1 )
 do_hover_highlight = true
+tiles = [ ExtResource( 3 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ) ]
 
 [node name="SpaceComponent" parent="." instance=ExtResource( 2 )]
 
